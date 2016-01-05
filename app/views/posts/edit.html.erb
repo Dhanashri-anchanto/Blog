@@ -1,0 +1,39 @@
+
+<h1>Editing post</h1>
+
+
+
+
+<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
+
+<div class ="posts edit" >
+
+
+<%= form_for @post do |f| %>
+
+<table border="2" cellpadding="10" cellspacing="0" summary="Post form fields">
+<tr>
+<th>Title</th>
+<td><%= f.text_field(:title) %></td>
+</tr>
+<tr>
+<th>Body</th>
+<td><%= f.text_field(:body) %></td>
+</tr>
+<tr>
+<th>Select Category</th> 
+ <td><%= f.collection_select :category_id,  Category.all, :id, :title  %></td> 
+  </tr> 
+</tr>
+</table>
+<br/>
+
+
+<div  class="form-buttons">
+
+<% p '*******************************************************' %>
+
+<%= submit_tag("Update Post")%>
+</div>
+<% end %>
+</div>

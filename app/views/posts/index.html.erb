@@ -1,0 +1,60 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<div align="right">
+ <font size=3><%= link_to "Category", categories_path  %></font>
+ <%= "|" %>
+ <font size=3><%= link_to "Tag", tags_path  %></font>
+ </div>
+
+<div class="posts index">
+ <h1>Listing posts</h1>
+
+<%= link_to("Add new Post", {:action => 'new'},:class => "action new") %><br/><br/>
+
+<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+<tr class="header">
+
+<th>Title</th>
+<th>Body</th>
+<th>Category</th>
+<th>Tags</th>
+<th>Options</th>
+
+</tr>
+<% @posts.each do |post| %>
+<tr>
+<td><%= post.title %></td>
+<td><%= post.body %></td>
+ 
+
+<td>
+<%= link_to("#{(post.category.title rescue '')}", {:action => 'dhanashri', :id => (post.category.id rescue 'nil')})%></td>
+
+<td>
+
+<% post.tags.each do |n| %>
+<%= link_to("#{ n.name}", {:action => 'dhanashritag', :id =>  n.id} )%>
+<%end%>
+
+
+</td>
+
+
+<td class="actions">
+<%= link_to("Show", {:action => 'show', :id => post.permalink }, :class => "action show")%>
+<%= "|" %>
+<%= link_to("Edit", {:action => 'edit', :id => post.permalink }, :class => "action edit")%>
+<%= "|" %>
+<%= link_to("Show Comments", {:action => 'show', :id => post.permalink }, :class => "action show")%>
+<%= "|" %>
+
+<%= link_to "Remove", post, method: :delete, data: { confirm: "Are you sure?" } %>
+</td>
+</tr>
+<% end %>
+</table>
+</div>

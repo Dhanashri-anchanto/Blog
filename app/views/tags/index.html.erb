@@ -1,0 +1,41 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<div align="right">
+ <font size=3><%= link_to "Category", categories_path  %></font>
+ <%= "|" %>
+ <font size=3><%= link_to "Post", posts_path  %></font>
+ </div>
+
+<div class="tags index">
+ <h1>Listing Tags</h1>
+
+<%= link_to("Add new Tag", {:action => 'new'},:class => "action new") %><br/><br/>
+<br/>
+<br/>
+
+<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+
+<th>Title</th>
+<th>Options</th>
+
+
+</tr>
+<% @tags.each do |tag| %>
+<tr>
+<td><%= tag.name %></td>
+
+<td class="actions">
+<%= link_to("Show", {:action => 'show', :id => tag.id }, :class => "action show")%>
+<%= link_to("Edit", {:action => 'edit', :id => tag.id }, :class => "action edit")%>
+
+
+<%= link_to "Remove", tag, method: :delete, data: { confirm: "Are you sure?" } %>
+</td>
+</tr>
+<% end %>
+</table>
+</div>

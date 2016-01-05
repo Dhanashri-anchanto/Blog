@@ -1,0 +1,20 @@
+<%= div_for comment do %>
+        <p>
+        <strong>
+        <%# if user_signed_in?%>
+                        Posted By :  <%= comment.user.email %>
+                        <%#end%>
+        
+                       
+                </strong>
+                <br/>
+                <strong>
+                        Posted <%= time_ago_in_words(comment.created_at) %> ago
+                       
+                </strong>
+                <br/>
+
+                <%= comment.body %>
+                 </p>
+                
+<% end %>

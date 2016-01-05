@@ -1,0 +1,21 @@
+<h1>New tag</h1>
+
+
+
+
+<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%> <br/><br/>
+<div class ="pages new" > 
+<h2> Create Tag </h2> 
+<%= form_for(:tag, :url => {:action => 'create'}) do |f| %> 
+<table border="2" cellpadding="10" cellspacing="0"  summary="Tag form fileds"> 
+<tr>
+ <th>Title</th>
+  <td><%= f.text_field(:name) %></td> 
+  </tr> 
+
+   </table> <br/><br/>
+   <div class="form-buttons"> 
+   <%= submit_tag("Create Tags")%> 
+   </div>
+    <% end %>
+     </div> 

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+ <% if flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
+
+<div class="tags show">
+<h2> Show Tag </h2>
+
+<table border="2" cellpadding="10" cellspacing="0" summary="Tags detail view">
+<tr>
+<th>Title</th>
+<td><%= @tag.name %></td>
+</tr>
+
+<tr>
+<th>Created</th>
+<td><%= @tag.created_at %></td>
+</tr>
+<tr>
+<th>Updated</th>
+<td><%= @tag.updated_at %></td>
+</tr>
+</table>
+</div>
+
+
