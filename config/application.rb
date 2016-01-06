@@ -58,5 +58,16 @@ module Blog1
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+
+    ActionMailer::Base.smtp_settings = {
+        :address => 'smtp.gmail.com',
+        :domain => 'mail.google.com',
+        :port => 587,
+        :user_name => "dhanashri.anchanto@gmail.com",
+        :password => "anchanto123",
+        :authentication => 'login',
+        :enable_starttls_auto => true
+    }
   end
 end

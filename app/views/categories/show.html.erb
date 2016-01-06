@@ -1,10 +1,4 @@
-<p id="notice"><%= notice %></p>
 
- <% if flash[:notice].blank? %>
-<div class="notice">
-<%= flash[:notice] %>
-</div>
-<% end %>
 
 <%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
 
@@ -14,16 +8,16 @@
 <table border="2" cellpadding="10" cellspacing="0"  summary="Posts detail view">
 <tr>
 <th>Title</th>
-<td><%= @category.title %></td>
+<td><%= (@category.title rescue "")%></td>
 </tr>
 
 <tr>
 <th>Created</th>
-<td><%= @category.created_at %></td>
+<td><%= (@category.created_at rescue "")%></td>
 </tr>
 <tr>
 <th>Updated</th>
-<td><%= @category.updated_at %></td>
+<td><%= (@category.updated_at rescue "")%></td>
 </tr>
 </table>
 </div>

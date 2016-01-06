@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2016010505375411) do
+ActiveRecord::Schema.define(:version => 20160106115234) do
 
   create_table "categories", :force => true do |t|
     t.text     "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.string   "permalink"
   end
 
+  add_index "categories", ["permalink"], :name => "index_categories_on_permalink"
   add_index "categories", ["user_id"], :name => "index_categories_on_user_id"
 
   create_table "comments", :force => true do |t|
@@ -61,8 +63,10 @@ ActiveRecord::Schema.define(:version => 2016010505375411) do
     t.integer  "taggable_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "permalink"
   end
 
+  add_index "tags", ["permalink"], :name => "index_tags_on_permalink"
   add_index "tags", ["post_id"], :name => "index_tags_on_post_id"
 
   create_table "users", :force => true do |t|
@@ -78,6 +82,13 @@ ActiveRecord::Schema.define(:version => 2016010505375411) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts"
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

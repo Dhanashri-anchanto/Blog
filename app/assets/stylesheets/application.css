@@ -45,3 +45,17 @@ border: solid 1px #6C6;
 background-color: #FCC;
 border: solid 1px #C66;
 }
+
+#user_nav
+{
+	padding: 5px 8px;
+
+	width : 1280px;
+	height: 35px;
+	background-color: #DCDCDC;
+}
+.topcorner{
+   position:absolute;
+   top:0;
+   right:0;
+  }

@@ -11,7 +11,9 @@
   <td><%= f.text_field(:title) %></td> 
   </tr> 
   
-   </table> <br/><br/>
+   </table> 
+<%= f.hidden_field :user_id, :value => current_user.id %>
+   <br/><br/>
    <div class="form-buttons"> 
    <%= submit_tag("Create Category")%> 
    </div>

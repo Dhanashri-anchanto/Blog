@@ -6,4 +6,6 @@ class Comment < ActiveRecord::Base
  # has_one :user
  has_many :tags, :as => :taggable
  #belongs_to :user, :foreign_key => "user_id"
+
+  validates :body, :presence => true
 end

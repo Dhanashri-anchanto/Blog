@@ -39,6 +39,6 @@ class TagsController < ApplicationController
 
   private
     def set_tag
-      @tag = Tag.find(params[:id])
+      @tag = Tag.find_by_permalink(params[:id])
     end
 end

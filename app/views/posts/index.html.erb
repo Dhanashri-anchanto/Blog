@@ -32,12 +32,12 @@
  
 
 <td>
-<%= link_to("#{(post.category.title rescue '')}", {:action => 'dhanashri', :id => (post.category.id rescue 'nil')})%></td>
+<%= link_to("#{(post.category.title rescue '')}", {:action => 'show_category', :id => (post.category.id rescue 'nil')})%></td>
 
 <td>
 
 <% post.tags.each do |n| %>
-<%= link_to("#{ n.name}", {:action => 'dhanashritag', :id =>  n.id} )%>
+<%= link_to("#{ n.name}", {:action => 'show_tag', :id =>  n.id} )%>
 <%end%>
 
 
@@ -46,13 +46,18 @@
 
 <td class="actions">
 <%= link_to("Show", {:action => 'show', :id => post.permalink }, :class => "action show")%>
+
+<%= "|" %>
+<%= link_to("Show Comments", {:action => 'show', :id => post.permalink }, :class => "action show")%>
+<% if user_signed_in? %>
+<% if post.user.id == current_user.id %>
 <%= "|" %>
 <%= link_to("Edit", {:action => 'edit', :id => post.permalink }, :class => "action edit")%>
 <%= "|" %>
-<%= link_to("Show Comments", {:action => 'show', :id => post.permalink }, :class => "action show")%>
-<%= "|" %>
 
 <%= link_to "Remove", post, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+<% end %>
 </td>
 </tr>
 <% end %>

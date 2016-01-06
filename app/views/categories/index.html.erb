@@ -1,8 +1,4 @@
-<% if !flash[:notice].blank? %>
-<div class="notice">
-<%= flash[:notice] %>
-</div>
-<% end %>
+
 <div align="right">
  <font size=3><%= link_to "Post", posts_path  %></font>
  <%= "|" %>
@@ -18,22 +14,32 @@
 <tr class="header">
 
 <th>Title</th>
+
 <th>Options</th>
 
 </tr>
-<% @categories.each do |post| %>
+<% @categories.each do |category| %>
 <tr>
-<td><%= post.title %></td>
+
+
+<td>
+<%= link_to("#{(category.title rescue '')}", {:action => 'topic', :id => (category.permalink rescue 'nil')})%></td>
 
 
 <td class="actions">
-<%= link_to("Show", {:action => 'show', :id => post.id }, :class => "action show")%>
-<%= link_to("Edit", {:action => 'edit', :id => post.id }, :class => "action edit")%>
+<%= link_to("Show", {:action => 'show', :id => category.permalink }, :class => "action show")%>
 
 
-<%= link_to "Remove", post, method: :delete, data: { confirm: "Are you sure?" } %>
+<% if user_signed_in? %>
+<% if category.user.id == current_user.id %>
+<%= link_to("Edit", {:action => 'edit', :id => category.permalink }, :class => "action edit")%>
+
+
+<%= link_to "Remove", category, method: :delete, data: { confirm: "Are you sure?" } %>
 </td>
 </tr>
+<% end %>
+<% end %>
 <% end %>
 </table>
 </div>

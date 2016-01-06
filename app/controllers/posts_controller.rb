@@ -69,12 +69,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-      Comment.where(:post_id => params[:id]).destroy_all
-     PostTag.where(:post_id => params[:id]).destroy_all
+     ## Comment.where(:post_id => params[:id]).destroy_all
+    # PostTag.where(:post_id => params[:id]).destroy_all
     respond_with(@post)
   end
 
-  def dhanashri
+  def show_category
   @temp = Category.find(params[:id])
 
   p "========#{@temp}"
@@ -88,7 +88,7 @@ class PostsController < ApplicationController
 
   end
 
-  def dhanashritag
+  def show_tag
 
     p params
     @t = PostTag.where(:tag_id => params[:id]).all

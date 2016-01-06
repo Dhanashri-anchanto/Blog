@@ -1,0 +1,22 @@
+<h2>Posts Under <font color="Blue"> <%= @temp.title %> </font> Category</h2>
+
+<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+<tr class="header">
+
+<th>Title</th>
+<th>Body</th>
+
+
+</tr>
+<% @post.each do |post| %>
+<tr>
+<td><%= post.title %></td>
+<td><%= post.body %></td>
+
+
+
+
+
+</tr>
+<% end %>
+</table>

@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user!, :except => [ :index, :show ]
+  before_filter :authenticate_user!, :except => [ :index, :show, :topic ]
   before_filter :set_category, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -37,8 +37,18 @@ class CategoriesController < ApplicationController
     respond_with(@category)
   end
 
+
+def topic
+@temp = Category.find_by_permalink(params[:id])
+  p "========#{@temp}"
+    #@post=Post.find(:category_id => @temp.id) #.where(:category_id => id)
+@post =@temp.posts
+   # @post = Post.find(:category_id => params[:id])
+    puts "#{@post}"
+end
+
   private
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.find_by_permalink(params[:id])
     end
 end

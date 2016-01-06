@@ -3,20 +3,32 @@ Blog1::Application.routes.draw do
   resources :tags
 
 
-  resources :categories
+  #resources :categories
+  resources :posts
   
   devise_for :users
 
-  root to: "posts#index"
+  root to: "categories#index"
 
+
+resources :categories do
+  
+  member do
+   get 'topic'
+  end
+end
+  
 resources :posts do
   member do
-       get 'dhanashri'
-       get 'dhanashritag'
+       get 'show_category'
+       get 'show_tag'
         post 'toggle'
       end
     resources :comments
+ 
 end
+
+
 
 
 #match "/:slug" => "posts#show"
