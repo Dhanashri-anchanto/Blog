@@ -10,6 +10,13 @@ class CategoriesController < ApplicationController
   end
 
   def show
+
+    @temp = Category.find_by_permalink(params[:id])
+  p "========#{@temp}"
+    #@post=Post.find(:category_id => @temp.id) #.where(:category_id => id)
+@post =@temp.posts
+   # @post = Post.find(:category_id => params[:id])
+    puts "#{@post}"
     respond_with(@category)
   end
 
@@ -38,16 +45,7 @@ class CategoriesController < ApplicationController
   end
 
 
-def topic
-@temp = Category.find_by_permalink(params[:id])
-  p "========#{@temp}"
-    #@post=Post.find(:category_id => @temp.id) #.where(:category_id => id)
-@post =@temp.posts
-   # @post = Post.find(:category_id => params[:id])
-    puts "#{@post}"
-end
-
-  private
+ private
     def set_category
       @category = Category.find_by_permalink(params[:id])
     end

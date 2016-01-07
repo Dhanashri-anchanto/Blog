@@ -1,5 +1,6 @@
 
-
+<br/>
+<br/>
 <%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
 
 <div class="tags show">
@@ -23,3 +24,54 @@
 </div>
 
 
+
+
+</table>
+<br/><br/>
+<td><%#= link_to "Add new Post", new_category_post_path(@category) %></td>
+
+
+
+
+
+<div class="posts index">
+ <h1>Listing posts</h1>
+
+<%= link_to("Add new Post", {:action => 'new'},:class => "action new") %><br/><br/>
+
+<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+<tr class="header">
+
+<th>Title</th>
+<th>Body</th>
+
+<th>Options</th>
+
+</tr>
+<% @posts.each do |post| %>
+<tr>
+<td><%= post.title %></td>
+<td><%= post.body %></td>
+ 
+
+<td class="actions">
+<%= link_to("Show", category_post_path( post.category, post))%>
+
+
+<% if user_signed_in? %>
+<% if post.user.id == current_user.id %>
+<%= "|" %>
+<%= link_to("Edit", edit_category_post_path(post.category,post))%>
+<%= "|" %>
+<%= link_to "Remove", [post.category, post], method: :delete, data: { confirm: "Are you sure?" } %> </td>
+
+<%#= link_to "Remove", post, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+<% end %>
+</td>
+</tr>
+<% end %>
+</table>
+</div>
+
+</table>

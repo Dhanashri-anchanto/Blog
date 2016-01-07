@@ -1,10 +1,11 @@
 
 
-<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
+<br/><br/><br/><br/>
+
+<%= link_to("<< Back to list", categories_path )%><br/><br/>
 
 <div class="posts show">
 <h2> Show Post </h2>
-
 
 <strong>
         <%#if user_signed_in?%>
@@ -64,12 +65,16 @@
          <%= render :partial => @post.comments  %>
  </div>
 
-<%= form_for [@post, Comment.new] do |f| %>
+ 
+
+<%#= link_to 'Add New Comment',  category_post_comment_path %>
+
+<%#= form_for(:post, :url => {:action => 'create'}) do |f| %>
+<%= form_for [@post.category,@post, Comment.new] do |f| %>
         <p>
                 <%= f.label :body, "New comment" %><br/>
                 <%= f.text_area :body, cols: "43", rows: "10" %>
         </p>
         <p><%= f.submit "Add comment" %></p>
 <% end %>
-
 

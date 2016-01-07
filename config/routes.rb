@@ -4,7 +4,7 @@ Blog1::Application.routes.draw do
 
 
   #resources :categories
-  resources :posts
+  #resources :posts
   
   devise_for :users
 
@@ -12,27 +12,18 @@ Blog1::Application.routes.draw do
 
 
 resources :categories do
-  
-  member do
-   get 'topic'
+  resources :posts do
+     resources :comments
   end
 end
   
-resources :posts do
-  member do
-       get 'show_category'
-       get 'show_tag'
-        post 'toggle'
-      end
-    resources :comments
- 
-end
+
 
 
 
 
 #match "/:slug" => "posts#show"
-match '/:permalink' => 'posts#show'
+#match '/:permalink' => 'posts#show'
 
 
 #match ':controller(/:action(/:id))', :via => [:get,:post]

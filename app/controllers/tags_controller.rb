@@ -10,6 +10,8 @@ class TagsController < ApplicationController
   end
 
   def show
+    
+    @posts = @tag.posts
     respond_with(@tag)
   end
 

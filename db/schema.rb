@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160106115234) do
+ActiveRecord::Schema.define(:version => 20160107134049) do
 
   create_table "categories", :force => true do |t|
     t.text     "title"
@@ -57,17 +57,13 @@ ActiveRecord::Schema.define(:version => 20160106115234) do
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "tags", :force => true do |t|
-    t.integer  "post_id"
     t.string   "name"
-    t.string   "taggable_type"
-    t.integer  "taggable_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "permalink"
   end
 
   add_index "tags", ["permalink"], :name => "index_tags_on_permalink"
-  add_index "tags", ["post_id"], :name => "index_tags_on_post_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

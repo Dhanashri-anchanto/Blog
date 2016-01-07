@@ -1,6 +1,45 @@
-<h1>Editing comment</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+<%#= render 'form' %>
+
+<%#= link_to 'Show', @comment %> 
+<%#= link_to 'Back', comments_path %>
+
+<h1>Editing Comment</h1>
+
+
+
+
+<%#= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
+
+<div class ="comments edit" >
+<% p "--------#{@post.category}"%>
+<%= form_for(@comment, :url => category_post_comment_path(@post.category,  @post)) do |f| %>
+<%#= form_for(@comment, :url => category_post_comments_path(@category,@post)) do  |f| %>
+<%#= form_for  ([@category, @post, @comment]) do |f| %>
+<%#= form_for :comment , :id => [@post.category, @post, @comment] do |f| %>
+<%#= form_for @comment do |f| %>
+
+<table border="2" cellpadding="10" cellspacing="0" summary="Post form fields">
+<tr>
+
+<tr>
+<th>Body</th>
+<td><%= f.text_field(:body) %></td>
+
+
+</tr>
+
+</table>
+<br/>
+
+
+<div  class="form-buttons">
+
+<% p '*******************************************************' %>
+
+<%= submit_tag("Update Comment")%>
+</div>
+<% end %>
+</div>
+

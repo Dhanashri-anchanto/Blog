@@ -9,7 +9,20 @@
 <div class ="posts edit" >
 
 
-<%= form_for @post do |f| %>
+
+<%= form_for(@post, :url => category_post_path(@post.category, @post)) do |f| %>
+
+<%#= form_for(@comment, :url => category_post_comments_path(@category,@post)) do  |f| %>
+<%#= form_for  ([@category, @post, @comment]) do |f| %>
+<%#= form_for :comment , :id => [@post.category, @post, @comment] do |f| %>
+<%#= form_for @comment do |f| %>
+
+
+
+
+
+
+<%#= form_for @post do |f| %>
 
 <table border="2" cellpadding="10" cellspacing="0" summary="Post form fields">
 <tr>

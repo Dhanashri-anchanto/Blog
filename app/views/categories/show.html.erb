@@ -1,25 +1,54 @@
 
-
+<br/><br/><br/><br/>
 <%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
 
 <div class="categories show">
 <h2> Show Category </h2>
 
 <table border="2" cellpadding="10" cellspacing="0"  summary="Posts detail view">
-<tr>
-<th>Title</th>
-<td><%= (@category.title rescue "")%></td>
-</tr>
+	<tr>
+	<th>Title</th>
+	<td><%= (@category.title rescue "")%></td>
+	</tr>
+	<tr>
+	<th>Created</th>
+	<td><%= (@category.created_at rescue "")%></td>
+	</tr>
+	<tr>
+	<th>Updated</th>
+	<td><%= (@category.updated_at rescue "")%></td>
+	</tr>
+	</table>
+	</div>
 
-<tr>
-<th>Created</th>
-<td><%= (@category.created_at rescue "")%></td>
+
+<h2>Posts Under <font color="Blue"> <%= @temp.title %> </font> Category</h2>
+<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+<tr class="header">
+<th>Post Title</th>
+<th>Options</th>
 </tr>
 <tr>
-<th>Updated</th>
-<td><%= (@category.updated_at rescue "")%></td>
-</tr>
+	<% @post.each do |post| %>
+	<td><%= link_to "#{post.title}", category_post_path(@category,post) %></td>
+	<td class="actions">
+	<%= link_to("Show", category_post_path(post.category,post))%>
+
+	<% if user_signed_in? %>
+	<% if post.user.id == current_user.id %>
+	<%= "|" %>
+	<%= link_to("Edit", edit_category_post_path(post.category,post))%>
+	<%= "|" %>
+	<%= link_to "Remove", [post.category, post], method: :delete, data: { confirm: "Are you sure?" } %> </td>
+
+	<%#= link_to "Remove", [post.category, post], method: :delete, data: { confirm: "Are you sure?" } %> </td>
+	<% end %>
+	<% end %>
+	</td>
+	</tr>
+<% end %>
 </table>
-</div>
+<br/><br/>
+<td><%= link_to "Add new Post", new_category_post_path(@category) %></td>
 
 

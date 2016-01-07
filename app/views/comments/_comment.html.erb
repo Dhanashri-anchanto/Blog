@@ -1,12 +1,8 @@
 <%= div_for comment do %>
         <p>
         <strong>
-        <%# if user_signed_in?%>
-                        Posted By :  <%= comment.user.email %>
-                        <%#end%>
-        
-                       
-                </strong>
+          Posted By :  <%= comment.user.email %>
+        </strong>
                 <br/>
                 <strong>
                         Posted <%= time_ago_in_words(comment.created_at) %> ago
@@ -16,5 +12,20 @@
 
                 <%= comment.body %>
                  </p>
+
                 
+
+<% if user_signed_in? %>
+<% if comment.user.id == current_user.id %>
+
+<%= link_to("Edit", edit_category_post_comment_path(@post.category_id,@post,comment.id), :class => "action edit")%>
+<%= "|" %>
+<%#= link_to "Remove", [@post.category,@post,comment.id], method: :delete, data: { confirm: "Are you sure?"}%>
+
+<%= link_to "Remove", [@post.category,@post,comment], method: :delete, data: { confirm: "Are you sure?"}%>
+
+<%#= link_to "delete",{ :action => 'destroy', :id => [@post.category,@post,comment.id] } , data: { confirm: "Are you sure?"}%>
+
+<% end %>
+<% end %>
 <% end %>

@@ -1,16 +1,13 @@
 
-<div align="right">
- <font size=3><%= link_to "Category", categories_path  %></font>
- <%= "|" %>
- <font size=3><%= link_to "Post", posts_path  %></font>
- </div>
+
+<br/>
+<br/>
 
 <div class="tags index">
  <h1>Listing Tags</h1>
 
 <%= link_to("Add new Tag", {:action => 'new'},:class => "action new") %><br/><br/>
-<br/>
-<br/>
+
 
 <table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
 
@@ -21,10 +18,16 @@
 </tr>
 <% @tags.each do |tag| %>
 <tr>
-<td><%= tag.name %></td>
+<td>
+<%#= link_to("#{(tag.name rescue '')}", tag_path(tag.permalink))%>
+<%= tag.name %></td>
 
 <td class="actions">
 <%= link_to("Show", {:action => 'show', :id => tag.permalink }, :class => "action show")%>
+
+
+
+<%#= link_to("POST", category_post_path(tag.posts.first.category,tag.posts.first)) rescue "-" %>
 <%= link_to("Edit", {:action => 'edit', :id => tag.permalink }, :class => "action edit")%>
 
 

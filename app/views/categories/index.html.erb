@@ -1,9 +1,5 @@
+<br/><br/>
 
-<div align="right">
- <font size=3><%= link_to "Post", posts_path  %></font>
- <%= "|" %>
- <font size=3><%= link_to "Tag", tags_path  %></font>
- </div>
 
 <div class="categories index">
  <h1>Listing Categories</h1>
@@ -23,7 +19,9 @@
 
 
 <td>
-<%= link_to("#{(category.title rescue '')}", {:action => 'topic', :id => (category.permalink rescue 'nil')})%></td>
+<%= (category.title rescue '') %></td>
+
+<%#= link_to("#{(category.title rescue '')}", {:action => 'show', :id => (category.permalink rescue 'nil')})%></td>
 
 
 <td class="actions">
