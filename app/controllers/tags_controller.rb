@@ -25,13 +25,22 @@ class TagsController < ApplicationController
 
   def create
     @tag = Tag.new(params[:tag])
-    @tag.save
-    respond_with(@tag)
+    if @tag.valid?
+      @tag.save
+      redirect_to tag_path(@tag)
+    else
+      respond_with(@tag)
+    end
   end
 
   def update
-    @tag.update_attributes(params[:tag])
-    respond_with(@tag)
+    if @tag.valid?
+      @tag.update_attributes(params[:tag])
+      redirect_to tag_path(@tag)
+    else
+      respond_with(@tag)
+    end
+
   end
 
   def destroy
@@ -40,7 +49,7 @@ class TagsController < ApplicationController
   end
 
   private
-    def set_tag
-      @tag = Tag.find_by_permalink(params[:id])
-    end
+  def set_tag
+    @tag = Tag.find_by_permalink(params[:id])
+  end
 end

@@ -1,24 +1,8 @@
+<br/><br/>
+
+<%= link_to 'Back To previous Page',  categories_path %>
 <h1>Editing Categories</h1>
 
+<br/><br/>
 
-
-
-<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
-
-<div class ="categories edit" >
-
-
-<%= form_for @category do |f| %>
-
-<table border="2" cellpadding="10" cellspacing="0"  summary="Category form fields">
-<tr>
-<th>Title</th>
-<td><%= f.text_field(:title) %></td>
-</tr>
-
-</table><br/><br/>
-<div  class="form-buttons">
-<%= submit_tag("Update Post")%>
-</div>
-<% end %>
-</div>
+<%= render 'form' %>

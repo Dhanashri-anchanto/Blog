@@ -10,11 +10,6 @@ class CommentsController < ApplicationController
   end
 
   def show
-
-    #@post = Post.find_by_permalink(params[:post_id])
- #puts "DD====*********===#{@post.id}"
- #puts @post
- #@category = Category.find_by_permalink(params[:id => @post.category_id])
     respond_with(@comment)
   end
 
@@ -25,41 +20,30 @@ class CommentsController < ApplicationController
 
   def edit
     @post = Post.find_by_permalink(params[:post_id])
-     
   end
 
   def create
-    #@comment = Comment.new(params[:comment])
-    #@comment.save
-    #respond_with(@comment)
-    @post = Post.find_by_permalink(params[:post_id])
 
-   
+    @post = Post.find_by_permalink(params[:post_id])
     @id = current_user.id
     params[:comment].merge!(:user_id => @id)
-     @comment = @post.comments.create!(params[:comment])
+    @comment = @post.comments.create!(params[:comment])
+    redirect_to category_post_path(@post.category,@post)
 
-     redirect_to category_post_path(@post.category,@post)
-                
   end
 
   def update
-    #raise params.inspect
-    #@post = Post.find_by_permalink(params[:id])
-     @comment.update_attributes(params[:comment])
-     
+   @comment.update_attributes(params[:comment])
+   redirect_to category_post_path(@comment.post.category, @comment.post)
+ end
 
-redirect_to category_post_path(@comment.post.category, @comment.post)
-  end
+ def destroy
+  @comment.destroy
+  redirect_to category_post_path(@comment.post.category, @comment.post)
+end
 
-  def destroy
-    @comment.destroy
-   
-    redirect_to category_post_path(@comment.post.category, @comment.post)
-  end
-
-  private
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+private
+def set_comment
+  @comment = Comment.find(params[:id])
+end
 end

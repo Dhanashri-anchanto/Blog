@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160107134049) do
+ActiveRecord::Schema.define(:version => 20160108105331) do
 
   create_table "categories", :force => true do |t|
     t.text     "title"
@@ -61,9 +61,11 @@ ActiveRecord::Schema.define(:version => 20160107134049) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "permalink"
+    t.integer  "user_id"
   end
 
   add_index "tags", ["permalink"], :name => "index_tags_on_permalink"
+  add_index "tags", ["user_id"], :name => "index_tags_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20160107134049) do
     t.integer  "failed_attempts"
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

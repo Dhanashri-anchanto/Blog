@@ -10,13 +10,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
     @temp = Category.find_by_permalink(params[:id])
-  p "========#{@temp}"
-    #@post=Post.find(:category_id => @temp.id) #.where(:category_id => id)
-@post =@temp.posts
-   # @post = Post.find(:category_id => params[:id])
-    puts "#{@post}"
+    @post =@temp.posts
     respond_with(@category)
   end
 
@@ -28,15 +23,23 @@ class CategoriesController < ApplicationController
   def edit
   end
 
-  def create
+  def create   
     @category = Category.new(params[:category])
-    @category.save
-    respond_with(@category)
+    if @category.valid?
+      @category.save
+      redirect_to category_path(@category)
+    else
+      respond_with(@category)
+    end
   end
 
   def update
-    @category.update_attributes(params[:category])
-    respond_with(@category)
+    if @category.valid?
+      @category.update_attributes(params[:category])
+      redirect_to category_path(@category)
+    else
+      respond_with(@category)
+    end
   end
 
   def destroy
@@ -45,8 +48,8 @@ class CategoriesController < ApplicationController
   end
 
 
- private
-    def set_category
-      @category = Category.find_by_permalink(params[:id])
-    end
+  private
+  def set_category
+    @category = Category.find_by_permalink(params[:id])
+  end
 end

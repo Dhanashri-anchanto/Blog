@@ -1,80 +1,55 @@
 
 
-<br/><br/><br/><br/>
-
-<%= link_to("<< Back to list", categories_path )%><br/><br/>
+<br/><br/>
+<%#= link_to 'Back To previous Page', url_for(:back) %>
+<%= link_to 'Back To previous Page',  categories_path %>
 
 <div class="posts show">
-<h2> Show Post </h2>
+	<h2> Show Post </h2>
 
-<strong>
-        <%#if user_signed_in?%>
-                        Posted By :  <%= @post.user.email %>
-                        <%#end%>
-        
-                       
-                </strong>
-                <br/>
-                <strong>
-                        Posted <%= time_ago_in_words(@post.created_at) %> ago
-                </strong>
-                <br/>        
+	<%= render @post %>
 
 
+	<table border="2" cellpadding="10" cellspacing="0" summary="Posts detail view">
+		<tr>
+			<th>Title</th>
+			<td><%= (@post.title rescue "") %></td>
+		</tr>
+		<tr>
+			<th>Body</th>
+			<td><%= (@post.body rescue "") %></td>
+		</tr>
+		<tr>
+			<th>Category</th>
+			<td><%= (@post.category.title rescue "") %></td>
+		</tr>
+		<tr>
+			<th>Tags</th>
+			<td><%= (@post.tags.map{|n| n.name}.uniq.join(' , ') rescue "")%></td>
+		</tr>
+		<tr>
+			<th>Created</th>
+			<td><%= (@post.created_at rescue "") %></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= (@post.updated_at rescue "") %></td>
+		</tr>
 
-<table border="2" cellpadding="10" cellspacing="0" summary="Posts detail view">
-<tr>
-<th>Title</th>
-<td><%= (@post.title rescue "") %></td>
-</tr>
-<tr>
-<th>Body</th>
-<td><%= (@post.body rescue "") %></td>
-</tr>
-
-<tr>
-<th>Category</th>
-<td><%= (@post.category.title rescue "") %></td>
-</tr>
-
-
-<tr>
-<th>Tags</th>
-<td><%= (@post.tags.map{|n| n.name}.uniq.join(' , ') rescue "")%></td>
-</tr>
-
-
-
-<tr>
-<th>Created</th>
-<td><%= (@post.created_at rescue "") %></td>
-</tr>
-<tr>
-<th>Updated</th>
-<td><%= (@post.updated_at rescue "") %></td>
-</tr>
-
-</table>
+	</table>
 </div>
 
 
- 
+<h2>Comments</h2>
+<div id="comments">
+	<%= render :partial => @post.comments  %>
+</div>
 
- <h2>Comments</h2>
- <div id="comments">
-         <%= render :partial => @post.comments  %>
- </div>
-
- 
-
-<%#= link_to 'Add New Comment',  category_post_comment_path %>
-
-<%#= form_for(:post, :url => {:action => 'create'}) do |f| %>
 <%= form_for [@post.category,@post, Comment.new] do |f| %>
-        <p>
-                <%= f.label :body, "New comment" %><br/>
-                <%= f.text_area :body, cols: "43", rows: "10" %>
-        </p>
-        <p><%= f.submit "Add comment" %></p>
+<p>
+	<%= f.label :body, "New comment" %><br/>
+	<%= f.text_area :body, cols: "43", rows: "10" %>
+</p>
+<p><%= f.submit "Add comment" %></p>
 <% end %>
 

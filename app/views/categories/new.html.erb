@@ -1,22 +1,7 @@
 
+
+<br/><br/>
+<%= link_to 'Back To previous Page', url_for(:back) %>
 <h1>New Category</h1>
 
-<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%> 
-<div class ="category new" > 
-<h2> Create Category </h2> 
-<%= form_for(:category, :url => {:action => 'create'}) do |f| %> 
-<table border="2" cellpadding="10" cellspacing="0"  summary="Category form fileds"> 
-<tr>
- <th>Title</th>
-  <td><%= f.text_field(:title) %></td> 
-  </tr> 
-  
-   </table> 
-<%= f.hidden_field :user_id, :value => current_user.id %>
-   <br/><br/>
-   <div class="form-buttons"> 
-   <%= submit_tag("Create Category")%> 
-   </div>
-    <% end %>
-     </div> 
-
+<%= render 'form'%>

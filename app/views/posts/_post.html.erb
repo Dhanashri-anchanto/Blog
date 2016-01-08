@@ -1,18 +1,17 @@
 <%= div_for post do %>
-        <p>
-
- <strong>
-        <%if user_signed_in?%>
-                        Posted By :  <%= post.users.email %>
-                        <%end%>
-        
-                       
-                </strong>
-                <br/>
-                <strong>
-                        Posted <%= time_ago_in_words(post.created_at) %> ago
-                </strong>
-                <br/>
+<p>
+        <strong>
                 
-        </p>
+                Posted By :  <%= post.user.username %>
+                                  
+        </strong>
+        <br/>
+        <strong>
+                Posted <%= time_ago_in_words(post.created_at) %> ago
+        </strong>
+        <br/>
+        
+</p>
+
+
 <% end %>

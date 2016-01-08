@@ -1,25 +1,50 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= form_for [:category,@post] do |f| %>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<table border="2" cellpadding="10" cellspacing="0" summary="Page form fileds">
+  <tr>
+   <th>Title</th>
+   <td><%= f.text_field(:title, :required => true) %></td> 
+ </tr> 
+ <tr> 
+  <th>Body</th> 
+  <td><%= f.text_area :body, cols: "43", rows: "10", :required => true %></td> 
+</tr> 
+<tr>
+  <th>Select Category</th> 
+  <td><%= f.collection_select :category_id,  Category.all, :id, :title , {:include_blank => 'Please Select'}, :prompt => 'Select'  %></td> 
+</tr> 
+<tr>
+  <th>Select Tag</th>
+  <td>
+    
+    <% Tag.all.each do |t| %>
+    <%= check_box_tag(:tag_ids, t.id, @post.tags.include?(t), :name => 'post[tag_ids][]') -%>
+    <%= t.name %><br/>
+    <% end %>
+  </td>
+</tr>
+</table>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+<br/><br/>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
+
+
+
+

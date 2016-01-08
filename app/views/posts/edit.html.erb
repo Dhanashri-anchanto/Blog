@@ -1,52 +1,6 @@
-
+<br/><br/>
+<%= link_to 'Back To previous Page', url_for(:back) %>
 <h1>Editing post</h1>
+<br/><br/>
 
-
-
-
-<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
-
-<div class ="posts edit" >
-
-
-
-<%= form_for(@post, :url => category_post_path(@post.category, @post)) do |f| %>
-
-<%#= form_for(@comment, :url => category_post_comments_path(@category,@post)) do  |f| %>
-<%#= form_for  ([@category, @post, @comment]) do |f| %>
-<%#= form_for :comment , :id => [@post.category, @post, @comment] do |f| %>
-<%#= form_for @comment do |f| %>
-
-
-
-
-
-
-<%#= form_for @post do |f| %>
-
-<table border="2" cellpadding="10" cellspacing="0" summary="Post form fields">
-<tr>
-<th>Title</th>
-<td><%= f.text_field(:title) %></td>
-</tr>
-<tr>
-<th>Body</th>
-<td><%= f.text_field(:body) %></td>
-</tr>
-<tr>
-<th>Select Category</th> 
- <td><%= f.collection_select :category_id,  Category.all, :id, :title  %></td> 
-  </tr> 
-</tr>
-</table>
-<br/>
-
-
-<div  class="form-buttons">
-
-<% p '*******************************************************' %>
-
-<%= submit_tag("Update Post")%>
-</div>
-<% end %>
-</div>
+<%= render 'form'%>

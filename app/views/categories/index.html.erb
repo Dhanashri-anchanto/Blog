@@ -1,43 +1,29 @@
 <br/><br/>
 
-
 <div class="categories index">
- <h1>Listing Categories</h1>
+	<h1>Listing Categories</h1>
+	<%= link_to("Add new Category", {:action => 'new'},:class => "action new") %><br/><br/>
+	<table border="2" cellpadding="10" cellspacing="0" summary="Post list" border=2 id="t01">
+		<tr class="header">
+			<th>Title</th>
+			<th>Options</th>
+		</tr>
 
-<%= link_to("Add new Category", {:action => 'new'},:class => "action new") %><br/><br/>
-
-<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
-<tr class="header">
-
-<th>Title</th>
-
-<th>Options</th>
-
-</tr>
-<% @categories.each do |category| %>
-<tr>
-
-
-<td>
-<%= (category.title rescue '') %></td>
-
-<%#= link_to("#{(category.title rescue '')}", {:action => 'show', :id => (category.permalink rescue 'nil')})%></td>
-
-
-<td class="actions">
-<%= link_to("Show", {:action => 'show', :id => category.permalink }, :class => "action show")%>
-
-
-<% if user_signed_in? %>
-<% if category.user.id == current_user.id %>
-<%= link_to("Edit", {:action => 'edit', :id => category.permalink }, :class => "action edit")%>
-
-
-<%= link_to "Remove", category, method: :delete, data: { confirm: "Are you sure?" } %>
-</td>
-</tr>
-<% end %>
-<% end %>
-<% end %>
-</table>
-</div>
+		<% @categories.each do |category| %>
+		<tr>
+			<td>
+				<%= (category.title rescue '') %></td>
+				<td class="actions">
+					<%= link_to("Show", {:action => 'show', :id => category.permalink }, :class => "action show", :style => 'color:#9932CC;')%>
+					<% if user_signed_in? %>
+					<% if category.user.id == current_user.id %>
+					|
+					<%= link_to("Edit", {:action => 'edit', :id => category.permalink }, :class => "action edit")%>|
+					<%= link_to "Remove", category, method: :delete, data: { confirm: "Are you sure?" } %>
+				</td>
+			</tr>
+			<% end %>
+			<% end %>
+			<% end %>
+		</table>
+	</div>

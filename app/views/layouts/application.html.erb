@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog1</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Blog1</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-<div id="user_nav" class="topcorner">
+	<div id="user_nav" class="topcorner">
 
-<% if user_signed_in? %>
-Signed in as <font size="3" color="red"><%= current_user.email %></font> . Not You?
-<div align = "right">
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div>
-<% else %>
-<div align = "right">
-<%= link_to "Sign UP", new_user_registration_path %> or <%= link_to "Sign In" , new_user_session_path %></div>
-<%end%>
-<div align = "right">
-<%= link_to "Home",  categories_path %>
-<%= "|" %>
-<%= link_to "Tags", tags_path %>
-</div>
-</div>
-<br/>
-<br/>
-<% flash.each do |name, msg| %>
-<%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-
+		<% if user_signed_in? %>
+		Signed in as <font size="3" color="red"><%= current_user.username %></font>
+		<div align = "right">
+			<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div>
+			<% else %>
+			<div align = "right">
+				<%= link_to "Sign UP", new_user_registration_path %> or <%= link_to "Sign In" , new_user_session_path %></div>
+				<%end%>
+				<div align = "right">
+					<%= link_to "Home",  categories_path %>|
+					<%= link_to "Tags", tags_path %>
+				</div>
+			</div>
+			<br/>
+			<br/>
+			<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+			<% end %>
 
 
-<%= yield %>
 
-</body>
-</html>
+			<%= yield %>
+
+		</body>
+		</html>

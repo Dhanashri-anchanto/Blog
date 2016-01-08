@@ -1,50 +1,7 @@
-
+<br/><br/>
+<%= link_to 'Back To previous Page', url_for(:back) %>
 <h1>New post</h1>
 
-<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%> 
-<div class ="pages new" > 
-<h2> Create Page </h2>
 
-
-<%= form_for(@post, :url => { :action => 'create', :id => [@category,@post]}) do |f| %> 
-<%#= form_for(:post, :url => {:action => 'create'}) do |f| %> 
-
-<table border="2" cellpadding="10" cellspacing="0" summary="Page form fileds">
-
-<tr>
- <th>Title</th>
-  <td><%= f.text_field(:title) %></td> 
-  </tr> 
-  <tr> 
-  <th>Body</th> 
-  <td><%= f.text_area :body, cols: "43", rows: "10" %></td> 
-  </tr> 
-<tr>
-<th>Select Category</th> 
- <td><%= f.collection_select :category_id,  Category.all, :id, :title , {:include_blank => 'Please Select'}, :prompt => 'Select'  %></td> 
-  </tr> 
-
-<tr>
-  <th>Select Tag</th>
-  <td>
-  
-  <% Tag.all.each do |t| %>
- <%= check_box_tag(:tag_ids, t.id, @post.tags.include?(t), :name => 'post[tag_ids][]') -%>
-  <%= t.name %><br/>
-  <% end %>
-
-  </td>
-  </tr>
-  
-</table>
-<%= f.hidden_field :user_id, :value => current_user.id %>
-
-
-<br/><br/>
-  
-<div class="form-buttons"> 
-   <%= submit_tag("Create Posts")%> 
-   </div>
-    <% end %>
-     </div> 
+<%= render 'form' %>
 

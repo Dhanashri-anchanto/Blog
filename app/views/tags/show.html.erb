@@ -1,77 +1,63 @@
 
-<br/>
-<br/>
-<%= link_to("<< Back to list",{:action => 'index'},:class => 'back-link')%><br/><br/>
-
+<br/><br/>
+<%= link_to 'Back To previous Page',  tags_path %>
+<br/><br/>
 <div class="tags show">
-<h2> Show Tag </h2>
+	<h2> Show Tag </h2>
+	<br><br/>
 
-<table border="2" cellpadding="10" cellspacing="0" summary="Tags detail view">
-<tr>
-<th>Title</th>
-<td><%= @tag.name %></td>
-</tr>
+	<%= render :partial => @tag %>
 
-<tr>
-<th>Created</th>
-<td><%= @tag.created_at %></td>
-</tr>
-<tr>
-<th>Updated</th>
-<td><%= @tag.updated_at %></td>
-</tr>
-</table>
+	<table border="2" cellpadding="10" cellspacing="0" summary="Tags detail view">
+		<tr>
+			<th>Title</th>
+
+			<td><font size="3" color="red"><%= @tag.name %></font></td>
+		</tr>
+
+		<tr>
+			<th>Created</th>
+			<td><%= @tag.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= @tag.updated_at %></td>
+		</tr>
+	</table>
 </div>
-
-
-
-
 </table>
 <br/><br/>
-<td><%#= link_to "Add new Post", new_category_post_path(@category) %></td>
-
-
 
 
 
 <div class="posts index">
- <h1>Listing posts</h1>
+	<h1>Listing posts</h1>
+	<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+		<tr class="header">
 
-<%= link_to("Add new Post", {:action => 'new'},:class => "action new") %><br/><br/>
+			<th>Title</th>
+			<th>Body</th>
 
-<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
-<tr class="header">
+			<th>Options</th>
 
-<th>Title</th>
-<th>Body</th>
+		</tr>
+		<% @posts.each do |post| %>
+		<tr>
+			<td><%= post.title %></td>
+			<td><%= post.body %></td>
+			
 
-<th>Options</th>
-
-</tr>
-<% @posts.each do |post| %>
-<tr>
-<td><%= post.title %></td>
-<td><%= post.body %></td>
- 
-
-<td class="actions">
-<%= link_to("Show", category_post_path( post.category, post))%>
-
-
-<% if user_signed_in? %>
-<% if post.user.id == current_user.id %>
-<%= "|" %>
-<%= link_to("Edit", edit_category_post_path(post.category,post))%>
-<%= "|" %>
-<%= link_to "Remove", [post.category, post], method: :delete, data: { confirm: "Are you sure?" } %> </td>
-
-<%#= link_to "Remove", post, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
-<% end %>
-</td>
-</tr>
-<% end %>
-</table>
+			<td class="actions">
+				<%= link_to("Show", category_post_path( post.category, post))%>|
+				<% if user_signed_in? %>
+				<% if post.user.id == current_user.id %>
+				<%= link_to("Edit", edit_category_post_path(post.category,post))%>|
+				<%= link_to "Remove", [post.category, post], method: :delete, data: { confirm: "Are you sure?" } %> </td>
+				<% end %>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
 </div>
 
-</table>
