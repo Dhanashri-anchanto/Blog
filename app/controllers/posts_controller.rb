@@ -17,10 +17,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @category = Category.find_by_permalink(params[:category_id])
     respond_with(@post)
   end
 
   def edit
+     @category = @post.category 
   end
 
   def create
@@ -43,6 +45,7 @@ class PostsController < ApplicationController
   
 
   def update
+
     if @post.valid?
       @post.update_attributes(params[:post])
       redirect_to category_post_path(@post.category, @post)

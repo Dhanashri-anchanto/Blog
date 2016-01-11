@@ -11,17 +11,21 @@
  *= require_self
  *= require_tree .
  */
-table#t01{
-  width: 100%;
+table#t01{ text-align: center;
+  width: 350%;
 }
  
 table#t01 tr:nth-child(even) {
-    background-color: #eee;
+  padding: 15px;
+    background-color: #C9E7CA;
 }
 table#t01 tr:nth-child(odd) {
+  padding: 15px;
     background-color: #fff;
 }
 table#t01 th {
+ 
+    border-collapse: collapse;
 
     color: white;
     background-color: black;
@@ -62,3 +66,51 @@ border: solid 1px #C66;
    top:0;
    right:0;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+#header {
+    background-color:black;
+    color:#4CAF50;
+    text-align:center;
+    padding:5px;
+
+}
+#content {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:15px;
+
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;
+}
+#section {
+  
+    width:350px;
+    float:left;
+    padding:10px;
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:1px;
+}

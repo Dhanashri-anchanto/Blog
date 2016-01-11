@@ -1,4 +1,4 @@
-<%= form_for [:category,@post] do |f| %>
+<%= form_for [:category,@post], html: { multipart: true } do |f| %>
 <% if @post.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,6 +12,10 @@
 <% end %>
 
 <table border="2" cellpadding="10" cellspacing="0" summary="Page form fileds">
+<tr>
+   <th>Selct an Image</th>
+   <td><%= f.file_field(:image) %></td> 
+ </tr> 
   <tr>
    <th>Title</th>
    <td><%= f.text_field(:title, :required => true) %></td> 
@@ -20,10 +24,7 @@
   <th>Body</th> 
   <td><%= f.text_area :body, cols: "43", rows: "10", :required => true %></td> 
 </tr> 
-<tr>
-  <th>Select Category</th> 
-  <td><%= f.collection_select :category_id,  Category.all, :id, :title , {:include_blank => 'Please Select'}, :prompt => 'Select'  %></td> 
-</tr> 
+
 <tr>
   <th>Select Tag</th>
   <td>
@@ -35,6 +36,7 @@
   </td>
 </tr>
 </table>
+<%= f.hidden_field :category_id, :value => @category.id %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
 <br/><br/>

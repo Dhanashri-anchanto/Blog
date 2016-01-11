@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160108105331) do
+ActiveRecord::Schema.define(:version => 20160111055451) do
 
   create_table "categories", :force => true do |t|
     t.text     "title"
@@ -46,10 +46,14 @@ ActiveRecord::Schema.define(:version => 20160108105331) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "category_id"
     t.string   "permalink"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "posts", ["category_id"], :name => "index_posts_on_category_id"
@@ -88,6 +92,15 @@ ActiveRecord::Schema.define(:version => 20160108105331) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.string   "mobile"
+    t.date     "birthdate"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

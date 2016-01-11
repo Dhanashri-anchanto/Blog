@@ -5,8 +5,8 @@ class CategoriesController < ApplicationController
   respond_to :html
 
   def index
-    @categories = Category.all
-    respond_with(@categories)
+    @categories = Category.paginate(page: params[:page], per_page: 5) #.order("id DESC")
+    respond_with(@categories) 
   end
 
   def show

@@ -8,6 +8,9 @@ gem 'rails', '3.2.14'
 gem 'mysql2',   '~> 0.3.10'
 gem 'devise'
 gem 'has_permalink'
+gem "paperclip", "~> 4.3"
+gem 'will_paginate', '~> 3.0.4'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 
 

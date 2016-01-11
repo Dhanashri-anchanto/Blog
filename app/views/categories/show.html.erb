@@ -29,17 +29,22 @@
 <table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
 	<tr class="header">
 		<th>Post Title</th>
+		<th>Created At</th>
 		<th>Options</th>
 	</tr>
 	<tr>
-		<% @post.each do |post| %>
-		<td><%= "#{post.title}"%></td>
+		<% @post.order("id DESC").each do |post| %>
+		<td>
+		<%= truncate(post.title, length: 50) %>
+  <%= link_to 'read more', category_post_path(post.category,post) %> </td>
+		<td><%= post.created_at%></td>
 		<td class="actions">
 			<%= link_to("Show", category_post_path(post.category,post))%>
 
 			<% if user_signed_in? %>
 			<% if post.user.id == current_user.id %>
 			|
+			<%puts "=======#{post.category}"%>
 			<%= link_to("Edit", edit_category_post_path(post.category,post))%>|
 			<%= link_to "Remove", [post.category, post], method: :delete, data: { confirm: "Are you sure?" } %> </td>
 		</td>

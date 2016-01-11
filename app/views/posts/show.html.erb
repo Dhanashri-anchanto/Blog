@@ -14,7 +14,8 @@
 		<tr>
 			<th>Title</th>
 			<td><%= (@post.title rescue "") %></td>
-		</tr>
+			<td> <%= image_tag @post.image.url(:medium) %></td>
+			</tr>
 		<tr>
 			<th>Body</th>
 			<td><%= (@post.body rescue "") %></td>

@@ -6,6 +6,8 @@
 	<table border="2" cellpadding="10" cellspacing="0" summary="Post list" border=2 id="t01">
 		<tr class="header">
 			<th>Title</th>
+			<th>Total Posts</th>
+			<th>Latest Post</th>
 			<th>Options</th>
 		</tr>
 
@@ -13,6 +15,12 @@
 		<tr>
 			<td>
 				<%= (category.title rescue '') %></td>
+				<td> <%= category.posts.count %></td>
+
+				
+				<td>
+				<%if !category.posts.last.nil? %>
+				<%= link_to("#{category.posts.last.title}", category_post_path(category,category.posts))%><%end%></td>
 				<td class="actions">
 					<%= link_to("Show", {:action => 'show', :id => category.permalink }, :class => "action show", :style => 'color:#9932CC;')%>
 					<% if user_signed_in? %>
@@ -20,10 +28,19 @@
 					|
 					<%= link_to("Edit", {:action => 'edit', :id => category.permalink }, :class => "action edit")%>|
 					<%= link_to "Remove", category, method: :delete, data: { confirm: "Are you sure?" } %>
+					<% end %>
+			<% end %>
 				</td>
 			</tr>
+			
 			<% end %>
-			<% end %>
-			<% end %>
+			<tr>
+    <td colspan="4"><%= will_paginate @categories, renderer: BootstrapPagination::Rails , previous_label: "Older", next_label: "Newer", inner_window: 1 %></td>
+  </tr>
+			
 		</table>
+
 	</div>
+	<br/>
+	<div></div>
+	

@@ -65,7 +65,7 @@ module Blog1
         :domain => 'mail.google.com',
         :port => 587,
         :user_name => "dhanashri.anchanto@gmail.com",
-        :password => "anchanto123",
+        :password => "dream@123",
         :authentication => 'login',
         :enable_starttls_auto => true
     }
