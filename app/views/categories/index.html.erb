@@ -23,6 +23,8 @@
 				<%= link_to("#{category.posts.last.title}", category_post_path(category,category.posts))%><%end%></td>
 				<td class="actions">
 					<%= link_to("Show", {:action => 'show', :id => category.permalink }, :class => "action show", :style => 'color:#9932CC;')%>
+	
+
 					<% if user_signed_in? %>
 					<% if category.user.id == current_user.id %>
 					|

@@ -17,7 +17,7 @@ table#t01{ text-align: center;
  
 table#t01 tr:nth-child(even) {
   padding: 15px;
-    background-color: #C9E7CA;
+    background-color: #EEEFDB;
 }
 table#t01 tr:nth-child(odd) {
   padding: 15px;

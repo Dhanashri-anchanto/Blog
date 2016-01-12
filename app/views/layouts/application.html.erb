@@ -34,7 +34,7 @@ a:hover:not(.active) {
 body{
     height: 1000px ; 
    
-    background: linear-gradient( white,#4CAF50); /* Standard syntax (must be last) */
+    background: #D4D7A7;       /* Standard syntax (must be last) */
 }
 
 
@@ -49,10 +49,12 @@ background-color:#4CAF50;
 
 
 <ul>
-  <li><a class="active" href="#home">Home</a></li>
+  <li class = "active"><%= link_to "Home", root_path %></li>
  
   <% if user_signed_in? %>
-  <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li><%end %>
+  <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+   <li> <%= link_to "Tags", tags_path %>  </li><%end %>
+ 
   <%else%>
    <li><%= link_to "Sign UP", new_user_registration_path %></li>
   <li><%= link_to "Sign In" , new_user_session_path %></li>
@@ -66,6 +68,7 @@ background-color:#4CAF50;
 <h1 style = "font-family:URW Chancery L ; font-size: 300%; " align="center">"Knowledge"</h1>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;........ If carried to the extreme, becomes elegance.</p>
 </div>
+
 <br/>
 <div id="content">
 <h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">The control of information is something the elite always does, particularly in a despotic form of government. Information, knowledge, is power. If you can control information, you can control people.</h5>

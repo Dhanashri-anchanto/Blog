@@ -2,11 +2,16 @@
 Blog1::Application.routes.draw do
   resources :tags
 
+# get "signout" => "sessions#destroy", :as => :destroy_user_session
+# get "signin" => "sessions#new", :as => :destroy_user_session
+# get "signup" => "users#new", :as => :destroy_user_session
 
+#resources :users
+#resources :sessions
   #resources :categories
   #resources :posts
   
-  devise_for :users
+  devise_for :users #, :controllers => {:sessions => 'sessions'}
 
   root to: "categories#index"
 
@@ -16,7 +21,9 @@ resources :categories do
      resources :comments
   end
 end
-  
+#   devise_scope :user do
+#    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+# end
 
 
 
