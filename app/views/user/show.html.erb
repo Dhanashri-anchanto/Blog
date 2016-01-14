@@ -1,0 +1,57 @@
+<div class="container">
+<%= image_tag current_user.image(:thumb) , class: "img-thumbnail" %>
+ <h2>Profile</h2>
+ 
+ <table id=t01 class="table table-bordered table-striped">
+   <thead>
+ 
+
+           <tr>
+                       <th class ="active">Name</th>
+                       <td class ="info"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></td>
+                       
+           </tr>
+           
+           <tr>
+                           <th class ="active">Email</th>
+                           <td class ="info"><%= current_user.email %></td>
+           </tr>
+          
+           <tr>
+                           <th class ="active">Birth Date</th>
+                           <td class ="info"><%= current_user.birthdate%></td>
+           </tr>
+           <tr>
+                           <th class ="active">Gender</th>
+                                   <% if current_user.gender== 'true' %>
+                           <td class ="info">Male</td>
+                            <% else %>
+                            <td class ="info">Female</td>
+                            <% end %>
+           </tr>
+           
+
+
+
+   </thead>
+   
+ 
+       
+ 
+ 
+ 
+ 
+   <%= link_to 'Edit', edit_user_registration_path(current_user), :class => 'btn btn-sm btn-info' %>
+   <%#= link_to 'Delete', customer, remote: true, :method => :delete, data: {confirm: "Delete Customer: #{customer.first_name} #{customer.last_name}"}, :class => 'btn btn-sm btn-danger' %>
+
+
+
+
+
+
+   </tbody>
+ </table>
+
+ <%#= render 'dialog' %>
+
+</div>

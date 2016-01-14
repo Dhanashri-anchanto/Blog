@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+ #layout 'temp'
   before_filter :authenticate_user!, :except => [ :index, :show ]
   before_filter :set_post, only: [:show, :edit, :update, :destroy]
 

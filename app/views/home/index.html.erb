@@ -1,0 +1,70 @@
+
+
+
+
+<div class="container">
+	<div class="jumbotron">
+		<h1 style = "font-family:URW Chancery L ; font-size: 300%; " align="center">"Knowledge"</h1>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;........ If carried to the extreme, becomes elegance.</p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button data-toggle="collapse" data-target="#content">Read More</button>
+
+
+		<div id="content" class="collapse">
+			<h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">The control of information is something the elite always does, particularly in a despotic form of government. Information, knowledge, is power. If you can control information, you can control people.</h5>
+		</div>
+
+	</div>
+	 
+  <div class="row">
+
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+       <li><b><%= link_to 'Categories', Category %></b></li>
+        <li><b><%= link_to 'Posts' ,Post %></b></li>
+        <li><b><%= link_to 'Tags' ,Tag %></li>
+
+      </ul>
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="clearfix visible-lg"></div>
+  </div>
+</div>
+
+
+
+
+
+
+<b>  <%= link_to 'Click Here', "#", data: {toggle: "modal", target: "#mymodal"} %>
+	<% if user_signed_in? %>
+	<div class="container">
+		<h2>Modal Example</h2>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-sm">
+				
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">WelCome !</h4>
+					</div>
+					<div class="modal-body">
+						<p><h3><%= current_user.username%></h3></p>
+						<p><h6>Your Last Sign in at : <%= current_user.last_sign_in_at %></h6></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Thank You..!!</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	<% end%>
+
+

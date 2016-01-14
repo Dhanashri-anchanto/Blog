@@ -1,18 +1,18 @@
 <%= div_for comment do %>
+<div class="well">
 
-<p style = "border:1px inset; border-bottom-left-radius: 10px">
 
 <strong>
-<font size="3"><%= comment.body %></font>
+<font size="5"><%= comment.body %></font>
   </strong> 
   <br/> 
-     &nbsp;&nbsp; Posted By :  <%= comment.user.username %> &nbsp;|&nbsp; Posted <%= time_ago_in_words(comment.created_at) %> ago
+   &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; <font color="#707070 " size=1>Posted By :  <%= comment.user.username %> &nbsp;|&nbsp; Posted <%= time_ago_in_words(comment.created_at) %> ago</font>
 
 <br/>
 
 
-</p>
 
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
 <% if user_signed_in? %>
 <% if comment.user.id == current_user.id %>
 
@@ -21,3 +21,4 @@
 <% end %>
 <% end %>
 <% end %>
+</div>

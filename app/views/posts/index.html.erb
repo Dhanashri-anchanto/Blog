@@ -1,12 +1,7 @@
-<% if !flash[:notice].blank? %>
-<div class="notice">
-	<%= flash[:notice] %>
-</div>
-<% end %>
 
-<div align="right">
-	<font size=3><%= link_to "Tag", tags_path  %></font>
-</div>
+<div class="container">
+	
+
 
 <div class="posts index">
 	<h1>Listing posts</h1>
@@ -15,7 +10,7 @@
 	<%#= link_to "Add new Post", new_category_post_path(Category.first, @post) %>
 	<%= link_to("Add new Post", {:action => 'new'},:class => "action new") %><br/><br/>
 
-	<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+	<table id=t01 class="table table-bordered table-striped">
 		<tr class="header">
 
 			<th>Title</th>
@@ -43,11 +38,10 @@
 				<td class="actions">
 					<%= link_to("Show", {:action => 'show', :id => post.permalink }, :class => "action show")%>
 
-					<%= "|" %>
-					<%= link_to("Show Comments", {:action => 'show', :id => post.permalink }, :class => "action show")%>
+					
 					<% if user_signed_in? %>
 					<% if post.user.id == current_user.id %>
-					<%= "|" %>
+					
 					<%= link_to("Edit", {:action => 'edit', :id => post.permalink }, :class => "action edit")%>
 					<%= "|" %>
 
@@ -58,4 +52,4 @@
 			</tr>
 			<% end %>
 		</table>
-	</div>
+	</div></div>

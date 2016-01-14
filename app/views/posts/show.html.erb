@@ -1,20 +1,19 @@
-
-
-<br/><br/>
-<%#= link_to 'Back To previous Page', url_for(:back) %>
+<div class="container">
 <%= link_to 'Back To previous Page',  categories_path %>
-
+<br/><br/>
 <div class="posts show">
-	<h2> Show Post </h2>
+	<div class="table-responsive"> 
+	<table id=t01 class="table table-bordered table-striped">
 
-	<%= render @post %>
-
-
-	<table border="2" cellpadding="10" cellspacing="0" summary="Posts detail view">
 		<tr>
 			<th>Title</th>
-			<td><%= (@post.title rescue "") %></td>
-			<td> <%= image_tag @post.image.url(:medium) %></td>
+			<td><h3><%= (@post.title rescue "") %></h3></td>
+			
+			</tr>
+			<tr>
+			<th>Associated Image</th>
+			<td><%= image_tag @post.image.url(:medium) %></td>
+			
 			</tr>
 		<tr>
 			<th>Body</th>
@@ -39,6 +38,7 @@
 
 	</table>
 </div>
+</div>
 
 
 <h2>Comments</h2>
@@ -54,3 +54,4 @@
 <p><%= f.submit "Add comment" %></p>
 <% end %>
 
+</div>

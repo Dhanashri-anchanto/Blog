@@ -10,9 +10,12 @@
  *
  *= require_self
  *= require_tree .
+ 
  */
-table#t01{ text-align: center;
-  width: 350%;
+
+ 
+table#t01{ 
+  width: 100%;
 }
  
 table#t01 tr:nth-child(even) {
@@ -80,6 +83,7 @@ border: solid 1px #C66;
 
 
 #header {
+   width: 100%;
     background-color:black;
     color:#4CAF50;
     text-align:center;

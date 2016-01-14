@@ -1,12 +1,14 @@
 
-
+<div class="container">
 <br/><br/>
 <%= link_to 'Back To previous Page', url_for(:back) %>
 <div class="tags index">
+<br/><br/>
+<%= link_to("Add new Tag", new_tag_path) %>
 	<h1>Listing Tags</h1>
 	
 
-	<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
+	<table id=t01 class="table table-bordered table-striped">
 
 		<th>Title</th>
 		<th>Options</th>
@@ -19,8 +21,7 @@
 				<%= link_to("Show", {:action => 'show', :id => tag.permalink }, :class => "action show")%>
 				<% if user_signed_in? %>
 				<% if tag.user.id == current_user.id %>
-				|
-				<%= link_to("Edit", {:action => 'edit', :id => tag.permalink }, :class => "action edit")%>|
+								<%= link_to("Edit", {:action => 'edit', :id => tag.permalink }, :class => "action edit")%>|
 				<%= link_to "Remove", tag, method: :delete, data: { confirm: "Are you sure?" } %>
 			</td>
 		</tr>
@@ -29,5 +30,5 @@
 		<% end %>
 	</table>
 </div>
-<br/><br/>
-<%= link_to("Add new Tag", new_tag_path) %>
+
+</div>

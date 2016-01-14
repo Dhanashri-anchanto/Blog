@@ -13,6 +13,10 @@ gem 'will_paginate', '~> 3.0.4'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 #gem 'omniauth'
 
+gem 'bootstrap-sass',       '3.2.0.0'
+gem 'autoprefixer-rails'
+gem 'sass', '~> 3.2.0'
+
 
 
 # Gems used only for assets and not required
@@ -20,7 +24,7 @@ gem 'will_paginate-bootstrap', '~> 1.0.1'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+gem 'bootstrap-modal-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 

@@ -1,5 +1,16 @@
 
 Blog1::Application.routes.draw do
+  get "user/show"
+  get "user/about"
+  get "user/contact"
+  get "user/help"
+ 
+  get "home/index"
+
+  get "errors/not_found"
+
+  get "errors/internal_server_error"
+
   resources :tags
 
 # get "signout" => "sessions#destroy", :as => :destroy_user_session
@@ -13,8 +24,8 @@ Blog1::Application.routes.draw do
   
   devise_for :users #, :controllers => {:sessions => 'sessions'}
 
-  root to: "categories#index"
-
+  root to: "home#index"
+resources :posts
 
 resources :categories do
   resources :posts do
@@ -24,7 +35,8 @@ end
 #   devise_scope :user do
 #    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
 # end
-
+get "/404" => "errors#not_found"
+get "/500" => "errors#internal_server_error"
 
 
 

@@ -1,9 +1,10 @@
+<div class="container">
 <h2>Log in to Share Your Knowledge</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 
-<table border="2" cellpadding="10" cellspacing="0"  id ="#t01">
+ <table id=t01 class="table table-striped">
     <tr>
       <th><%= f.label :email %></th>
       <td>  <%= f.email_field :email, autofocus: true %></td>
@@ -28,10 +29,17 @@
   </tr>
   <tr>
   <td></td><td>
-    <%= f.submit "Log in" %></td>
+   <%= f.submit "Log in", class: "btn btn-primary" %></td>
     </tr>
 
 <% end %>
 </table>
 
+
+
+    
+
+    <p>New user? <%= link_to "Sign up now!", new_user_session_path %></p>
+
 <%= render "devise/shared/links" %>
+</div>

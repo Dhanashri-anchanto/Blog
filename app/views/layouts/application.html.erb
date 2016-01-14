@@ -2,92 +2,97 @@
 <html>
 <head>
 	<title>Blog1</title>
-	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-	<style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
 
-li {
-    float: left;
-}
+    li {
+      float: left;
+    }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
 
-a:hover:not(.active) {
-    background-color: #111;
-}
-body{
-    height: 1000px ; 
-   
-    background: #D4D7A7;       /* Standard syntax (must be last) */
-}
+    a:hover:not(.active) {
+      background-color: #111;
+    }
+    body{
+      height: 1000px ; 
+
+      background: #D4D7A7;       /* Standard syntax (must be last) */
+    }
 
 
-.active {
-background-color:#4CAF50;
-}
-</style>
+    .active {
+      background-color:#4CAF50;
+    }
+
+
+
+    .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+
+
+
+ 
 </head>
+
 
 
 <body>
 
+  <%= render 'layouts/header' %>
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
 
-<ul>
-  <li class = "active"><%= link_to "Home", root_path %></li>
- 
-  <% if user_signed_in? %>
-  <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-   <li> <%= link_to "Tags", tags_path %>  </li><%end %>
- 
-  <%else%>
-   <li><%= link_to "Sign UP", new_user_registration_path %></li>
-  <li><%= link_to "Sign In" , new_user_session_path %></li>
-  <li><a href="#about">About</a></li>
- 
-<p align= "right"><% if user_signed_in? %>
-	<font size="3" color="white">	Signed in as</font> <font size="3" color="#4CAF50"><%= current_user.username %></font><%end%></p>
-</ul>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip(); 
+    });
 
-   <div id="header">
-<h1 style = "font-family:URW Chancery L ; font-size: 300%; " align="center">"Knowledge"</h1>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;........ If carried to the extreme, becomes elegance.</p>
-</div>
 
-<br/>
-<div id="content">
-<h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">The control of information is something the elite always does, particularly in a despotic form of government. Information, knowledge, is power. If you can control information, you can control people.</h5>
-</div>
-<br/>
-			<br/>
-			<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, :id => "flash_#{name}" %>
-			<% end %>
-<div id="section">
-<%= yield %>
-</div>
+    $(function() {
+      $('#myModal').modal();
+    });
 
-<br/>
-      <br/>
-<div id="footer">
-Developed By : Dhanashri Joshi
-</div>
-		
+  </script>
 
-		</body>
-		</html>
+ <br/>
+  <br/>
+  <br/>
+   
+  <div id="section">
+    <%= yield %>
+  </div>
+
+  <br/>
+  <br/>
+
+
+<div >
+  <%= render 'layouts/footer' %>	
+  </div>
+
+</body>
+</html>

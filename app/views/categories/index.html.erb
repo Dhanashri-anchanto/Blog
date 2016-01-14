@@ -1,12 +1,16 @@
 <br/><br/>
 
+
+<div class="container">
+<div class="table-responsive">
 <div class="categories index">
 	<h1>Listing Categories</h1>
 	<%= link_to("Add new Category", {:action => 'new'},:class => "action new") %><br/><br/>
-	<table border="2" cellpadding="10" cellspacing="0" summary="Post list" border=2 id="t01">
+	 <table id=t01 class="table table-striped">
+
 		<tr class="header">
 			<th>Title</th>
-			<th>Total Posts</th>
+			
 			<th>Latest Post</th>
 			<th>Options</th>
 		</tr>
@@ -14,22 +18,23 @@
 		<% @categories.each do |category| %>
 		<tr>
 			<td>
-				<%= (category.title rescue '') %></td>
-				<td> <%= category.posts.count %></td>
-
+				<%= (category.title rescue '') %>  <span class="badge"><%= category.posts.count %></span></td>
+				
 				
 				<td>
 				<%if !category.posts.last.nil? %>
-				<%= link_to("#{category.posts.last.title}", category_post_path(category,category.posts))%><%end%></td>
+				<%= link_to("#{category.posts.last.title}", category_post_path(category,category.posts.all))%><%end%></td>
 				<td class="actions">
 					<%= link_to("Show", {:action => 'show', :id => category.permalink }, :class => "action show", :style => 'color:#9932CC;')%>
 	
 
 					<% if user_signed_in? %>
+					<% if category.user.present? %>
 					<% if category.user.id == current_user.id %>
-					|
+					
 					<%= link_to("Edit", {:action => 'edit', :id => category.permalink }, :class => "action edit")%>|
 					<%= link_to "Remove", category, method: :delete, data: { confirm: "Are you sure?" } %>
+					<%end%>
 					<% end %>
 			<% end %>
 				</td>
@@ -41,8 +46,38 @@
   </tr>
 			
 		</table>
-
+</div>
 	</div>
 	<br/>
 	<div></div>
+	</div>
 	
+
+	<% if user_signed_in? %>
+  <div class="container">
+    <h2>Modal Example</h2>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">WelCome !</h4>
+          </div>
+          <div class="modal-body">
+            <p><h3><%= current_user.username%></h3></p>
+            <p><h6>Your Last Sign in at : <%= current_user.last_sign_in_at %></h6></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Thank You..!!</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  <% end%>
