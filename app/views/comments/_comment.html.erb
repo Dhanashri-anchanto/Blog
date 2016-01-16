@@ -6,7 +6,7 @@
 <font size="5"><%= comment.body %></font>
   </strong> 
   <br/> 
-   &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; <font color="#707070 " size=1>Posted By :  <%= comment.user.username %> &nbsp;|&nbsp; Posted <%= time_ago_in_words(comment.created_at) %> ago</font>
+   &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; <mark><small>Posted By :  <%= comment.user.username %> &nbsp;|&nbsp; Posted <%= time_ago_in_words(comment.created_at) %> ago</small>
 
 <br/>
 
@@ -16,8 +16,13 @@
 <% if user_signed_in? %>
 <% if comment.user.id == current_user.id %>
 
-<%= link_to("Edit", edit_category_post_comment_path(@post.category_id,@post,comment.id), :class => "action edit")%>|
-<%= link_to "Remove", [@post.category,@post,comment], method: :delete, data: { confirm: "Are you sure?"}%>
+<%= link_to edit_category_post_comment_path(@post.category_id,@post,comment.id), :class => "action edit", :class => 'btn btn-xs btn-info' do %>
+
+							<span class="glyphicon glyphicon-edit"></span> Edit  
+                            <% end %>&nbsp;&nbsp;
+<%= link_to [@post.category,@post,comment], method: :delete, data: { confirm: "Are you sure?"}, :class => 'btn btn-xs btn-danger' do %>
+							<span class="glyphicon glyphicon-trash"></span> Remove  
+                            <% end %>
 <% end %>
 <% end %>
 <% end %>

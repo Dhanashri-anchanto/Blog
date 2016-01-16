@@ -1,14 +1,10 @@
 <%= div_for post do %>
 <p>
-        <strong>
+        <small> 
                 
-                Posted By :  <%= post.user.username %>
-                                  
-        </strong>
-        <br/>
-        <strong>
+                Posted By :  <%= post.user.username %> &nbsp; | &nbsp;                                         
                 Posted <%= time_ago_in_words(post.created_at) %> ago
-        </strong>
+        <small> 
         <br/>
         
 </p>

@@ -7,16 +7,16 @@
  <table id=t01 class="table table-striped">
     <tr>
       <th><%= f.label :email %></th>
-      <td>  <%= f.email_field :email, autofocus: true %></td>
+      <td >  <%= f.email_field :email, autofocus: true %></td>
     </tr>
    <tr>
       <th><%= f.label :password %></th>
-      <td>   <%= f.password_field :password, autocomplete: "off" %></td>
+      <td >   <%= f.password_field :password, autocomplete: "off" %></td>
     </tr>
 
  
 <tr>
- <td></td><td> <% if devise_mapping.rememberable? -%>
+ <td ></td><td > <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
@@ -28,7 +28,7 @@
 
   </tr>
   <tr>
-  <td></td><td>
+  <td ></td><td class ="info">
    <%= f.submit "Log in", class: "btn btn-primary" %></td>
     </tr>
 

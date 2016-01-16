@@ -1,11 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 /* universal */
 
-body {
-  padding-top: 60px;
-}
 
 section {
   overflow: auto;
@@ -34,16 +32,17 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
+  
 }
 
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
+ 
+
   font-weight: normal;
-  color: #777;
+  color: #eee;
 }
 
 p {
@@ -73,10 +72,10 @@ p {
 /* footer */
 
 footer {
-  margin-top: 100%;
+ margin-top: 100%;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+  border-top: 1px solid #A3A3A3;
+  color: #fff ;
 }
 
 footer a {
@@ -134,10 +133,10 @@ aside {
 
 
 .jumbotron {
-    background: #000 url("~/images/aa.jpg") no-repeat center center;
+    background-image:  url("aa.jpg") no-repeat center center;
 }
 .jumbotron h1{
-  color: #4CAF50
+  color: black
 }
 
 
@@ -153,7 +152,7 @@ aside {
   margin-left: -250px;
   left: 250px;
   width: 250px;
-  background: #CCC;
+  
   position: fixed;
   height: 8%;
   overflow-y: auto;

@@ -1,57 +1,52 @@
-<div class="container">
-<%= link_to 'Back To previous Page',  categories_path %>
+
+<%= link_to categories_path , :class => 'btn btn-xs btn-default' do%>
+<span class="glyphicon glyphicon-triangle-left"></span> Back
+<% end %>
 <br/><br/>
-<div class="posts show">
-	<div class="table-responsive"> 
-	<table id=t01 class="table table-bordered table-striped">
-
-		<tr>
-			<th>Title</th>
-			<td><h3><%= (@post.title rescue "") %></h3></td>
-			
-			</tr>
-			<tr>
-			<th>Associated Image</th>
-			<td><%= image_tag @post.image.url(:medium) %></td>
-			
-			</tr>
-		<tr>
-			<th>Body</th>
-			<td><%= (@post.body rescue "") %></td>
-		</tr>
-		<tr>
-			<th>Category</th>
-			<td><%= (@post.category.title rescue "") %></td>
-		</tr>
-		<tr>
-			<th>Tags</th>
-			<td><%= (@post.tags.map{|n| n.name}.uniq.join(' , ') rescue "")%></td>
-		</tr>
-		<tr>
-			<th>Created</th>
-			<td><%= (@post.created_at rescue "") %></td>
-		</tr>
-		<tr>
-			<th>Updated</th>
-			<td><%= (@post.updated_at rescue "") %></td>
-		</tr>
-
-	</table>
-</div>
-</div>
 
 
-<h2>Comments</h2>
+<div class="panel panel-default">
+	<div class="panel-heading"><h3><%= @post.title %></h3></div>
+	<div class="panel-body">
+       <div class="row">
+          <div class="col-md-4">
+	          <%= image_tag @post.image.url(:thumb),size: "200 * 200" , class: "img-thumbnail" %>
+	      </div>		
+	      <div class="col-md-4">			
+        	  <strong>Post Content : </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= (@post.body rescue "") %><br/>
+
+         		<strong>Category :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= (@post.category.title rescue "") %><br/>
+
+
+           		<strong>Tags :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= (@post.tags.map{|n| n.name}.uniq.join(' , ') rescue "")%><br/>
+
+        		<strong>Post Created at :&nbsp;&nbsp;&nbsp;</strong><%= (@post.created_at rescue "") %><br/>
+
+        		<strong>Post Updated at :&nbsp;&nbsp;</strong><%= (@post.updated_at rescue "") %>
+		   </div>
+       </div>
+		<div class="panel-footer">
+			<%= render :partial => @post  %>
+			</div>
+		</div>
+	</div>
+		
 <div id="comments">
 	<%= render :partial => @post.comments  %>
 </div>
+<button data-toggle="collapse" data-target="#comment", class = "btn btn-xs btn-warning">Click here to Comment</button>
+		<div id="comment" class="collapse">
+			<h2>Comments</h2>
+
 
 <%= form_for [@post.category,@post, Comment.new] do |f| %>
 <p>
-	<%= f.label :body, "New comment" %><br/>
-	<%= f.text_area :body, cols: "43", rows: "10" %>
+	<h4>New comment</h4><br/>
+	<%= f.text_area :body, cols: "43", rows: "5" %>
 </p>
 <p><%= f.submit "Add comment" %></p>
 <% end %>
+		</div>
 
-</div>
+
+

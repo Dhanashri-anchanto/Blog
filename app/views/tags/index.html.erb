@@ -1,34 +1,37 @@
+<br/>
+<%= link_to url_for(:back) , :class => 'btn btn-xs btn-default' do%>
+<span class="glyphicon glyphicon-triangle-left"></span> Back
+<% end %>
+<br/>
 
-<div class="container">
-<br/><br/>
-<%= link_to 'Back To previous Page', url_for(:back) %>
-<div class="tags index">
-<br/><br/>
-<%= link_to("Add new Tag", new_tag_path) %>
-	<h1>Listing Tags</h1>
+<h1>Listing Tags</h1>
+		<div class="panel-group">
+				<div class="panel panel-info">
+					<% @tags.each do |tag| %>
+					<div class="panel-heading"><h3><%= tag.name %></h3></div>
+					<div class="panel-body">
+					<%= link_to tag_path(tag), :class => 'btn btn-xs btn-warning' do%>
+						<span class="glyphicon glyphicon-eye-open"></span> Show
+						<%end%>
+						<% if user_signed_in? %>
+						<% if tag.user.id == current_user.id %>
+						<%= link_to edit_tag_path(tag), :class => 'btn btn-xs btn-info' do %>
+
+							<span class="glyphicon glyphicon-edit"></span> Edit  
+                            <% end %>
+						<%= link_to tag,method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-xs btn-danger' do %>
+							<span class="glyphicon glyphicon-trash"></span> Remove  
+                            <% end %>
+					</div>
+					<%end%>
+					<%end%>
+					<%end%>
+				</div> 
+				<br/>
+				<br/>   
+			<%= link_to 'Add new Post',new_tag_path, :class => 'btn btn-success'  %>	
+			
+			
+			
+		
 	
-
-	<table id=t01 class="table table-bordered table-striped">
-
-		<th>Title</th>
-		<th>Options</th>
-	</tr>
-	<% @tags.each do |tag| %>
-	<tr>
-		<td>
-			<%= tag.name %></td>
-			<td class="actions">
-				<%= link_to("Show", {:action => 'show', :id => tag.permalink }, :class => "action show")%>
-				<% if user_signed_in? %>
-				<% if tag.user.id == current_user.id %>
-								<%= link_to("Edit", {:action => 'edit', :id => tag.permalink }, :class => "action edit")%>|
-				<%= link_to "Remove", tag, method: :delete, data: { confirm: "Are you sure?" } %>
-			</td>
-		</tr>
-		<% end %>
-		<% end %>
-		<% end %>
-	</table>
-</div>
-
-</div>

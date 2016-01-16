@@ -15,3 +15,7 @@
 //= require bootstrap
 //= require_tree .
 
+$(function() {
+      $('#myModal').modal();
+    });
+  

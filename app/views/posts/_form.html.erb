@@ -14,11 +14,11 @@
 <table border="2" cellpadding="10" cellspacing="0" summary="Page form fileds">
 <tr>
    <th>Selct an Image</th>
-   <td><%= f.file_field(:image) %></td> 
+   <td ><%= f.file_field(:image) %></td> 
  </tr> 
   <tr>
    <th>Title</th>
-   <td><%= f.text_field(:title, :required => true) %></td> 
+   <td ><%= f.text_field(:title, :required => true) %></td> 
  </tr> 
  <tr> 
   <th>Body</th> 
@@ -27,7 +27,7 @@
 
 <tr>
   <th>Select Tag</th>
-  <td>
+  <td >
     
     <% Tag.all.each do |t| %>
     <%= check_box_tag(:tag_ids, t.id, @post.tags.include?(t), :name => 'post[tag_ids][]') -%>

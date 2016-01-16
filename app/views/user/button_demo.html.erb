@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>BootStrap Button and Alerts Demo</h1>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#primary1">Large</button>
+  <button type="button" class="btn btn-primary btn-md" data-toggle="collapse" data-target="#primary2">Medium</button>    
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#primary3">Small</button>
+  <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" data-target="#primary4">XSmall</button>
+
+&nbsp;
+
+ <%= link_to 'Category',
+             categories_path, :class => 'btn btn-default'  %>
+<button type="button" class="btn btn-default" >Default</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-link">Link</button>
+&nbsp;
+
+
+<div class="btn-group">
+
+<%= link_to 'Category',
+             categories_path, :class => 'btn btn-success'  %>
+             <%= link_to 'Posts',
+             posts_path, :class => 'btn btn-primary'  %>
+             <%= link_to 'Tags',
+             tags_path, :class => 'btn btn-warning'  %>
+
+ 
+</div>
+&nbsp;
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    Tags <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Categories</a></li>
+      <li><a href="#">Posts</a></li>
+    </ul>
+  </div>
+
+
+
+
+
+
+  <div id="primary1" class="collapse">
+
+  	<div class="alert alert-info">
+  		<strong>Information Displayed Using Alerts.!</strong> <h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">This is a <mark><strong>LAARGE</strong> Primary Button </mark> demo</h5>
+  	</div>
+
+  </div>
+
+
+  <div id="primary2" class="collapse">
+
+  	<div class="alert alert-danger">
+  		<strong>Information Displayed Using Alerts.!</strong> <h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">This is a <mark><strong>MEDIUM</strong> Primary Button </mark> demo</h5>
+  	</div>
+
+  </div>
+
+
+  <div id="primary3" class="collapse">
+
+  	<div class="alert alert-success">
+  		<strong>Information Displayed Using Alerts.!</strong> <h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">This is a <mark><strong>SMALL</strong> Primary Button </mark> demo</h5>
+  	</div>
+
+  </div>
+
+
+  <div id="primary4" class="collapse">
+
+  	<div class="alert alert-warning">
+  		<strong>Information Displayed Using Alerts.!</strong> <h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">This is a <mark><strong>EXTRA SMALL</strong> Primary Button </mark> demo</h5>
+  	</div>
+
+  </div>
+
+
+</div>

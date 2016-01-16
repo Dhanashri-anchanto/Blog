@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    #raise params.inspect
     @temp = Category.find_by_permalink(params[:id])
     @post =@temp.posts
     respond_with(@category)

@@ -9,40 +9,40 @@
    <table id=t01 class="table table-striped">
     <tr>
       <th><%= f.label :first_name %></th>
-      <td> <%= f.text_field :first_name , autofocus: true,  :required => true %></td>
+      <td > <%= f.text_field :first_name , autofocus: true,  :required => true %></td>
     </tr>
     <tr>
       <th><%= f.label :last_name  %></th>
-      <td> <%= f.text_field :last_name , autofocus: true,  :required => true %></td>
+      <td > <%= f.text_field :last_name , autofocus: true,  :required => true %></td>
     </tr>
    <tr>
       <th><%= f.label :birthdate %></th>
-      <td> <%= f.date_select :birthdate, :order => [:day, :month, :year], :prompt => [day: 'Select day', month: 'Select month', year: 'Select year'], :end_year => Time.now.year - 50 , :start_year => Time.now.year -%></td>
+      <td > <%= f.date_select :birthdate, :order => [:day, :month, :year], :prompt => [day: 'Select day', month: 'Select month', year: 'Select year'], :end_year => Time.now.year - 50 , :start_year => Time.now.year -%></td>
     </tr>
   <tr>
       <th><%= f.label :mobile %></th>
-      <td>  <%= f.text_field :mobile, autofocus: true,  :required => true %></td>
+      <td >  <%= f.text_field :mobile, autofocus: true,  :required => true %></td>
     </tr>
 <tr>
      <th> <%= f.label :image %></th>
-      <td>   <%= f.file_field :image%></td>
+      <td >   <%= f.file_field :image%></td>
     </tr>
 
 <tr>
      <th> <%= f.label :username %></th>
-      <td>   <%= f.text_field :username, autofocus: true,  :required => true %></td>
+      <td >   <%= f.text_field :username, autofocus: true,  :required => true %></td>
     </tr>
 <tr>
      <th><%= f.label :gender %></th>
-      <td>  <%= f.select :gender, ['Male', 'Female'], {:include_blank => 'Please Select'}, :prompt => 'Select' %></td>
+      <td >  <%= f.select :gender, ['Male', 'Female'], {:include_blank => 'Please Select'}, :prompt => 'Select' %></td>
     </tr>
   <tr>
      <th>  <%= f.label :email %></th>
-      <td>   <%= f.email_field :email, autofocus: true %></td>
+      <td >   <%= f.email_field :email, autofocus: true %></td>
     </tr>
 <tr>
      <th>  <%= f.label :password %></th>
-      <td>  <% if @minimum_password_length %>
+      <td >  <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %></td>
@@ -50,12 +50,12 @@
 
 <tr>
      <th>   <%= f.label :password_confirmation %></th>
-      <td>  <%= f.password_field :password_confirmation, autocomplete: "off" %></td>
+      <td >  <%= f.password_field :password_confirmation, autocomplete: "off" %></td>
     </tr>
   <tr>
      <th> 
      </th>
-      <td>   <%= f.submit "Sign up" %></td>
+      <td >   <%= f.submit "Sign up" %></td>
     </tr>
  
 <% end %>

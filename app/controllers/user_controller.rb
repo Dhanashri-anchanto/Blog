@@ -8,4 +8,10 @@ class UserController < ApplicationController
   end
   def contact
   end
+  def button_demo
+  end
+  def glyphicon_demo
+  end
+  def progress_bar_demo
+  end
 end

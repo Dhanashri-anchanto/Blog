@@ -13,47 +13,46 @@
  
  */
 
- 
-table#t01{ 
+
+ table#t01{ 
   width: 100%;
 }
- 
+
 table#t01 tr:nth-child(even) {
   padding: 15px;
-    background-color: #EEEFDB;
+  background-color: #DBEEEF;
 }
 table#t01 tr:nth-child(odd) {
   padding: 15px;
-    background-color: #fff;
+  background-color: #fff;
 }
 table#t01 th {
  
-    border-collapse: collapse;
+  border-collapse: collapse;
 
-    color: white;
-    background-color: black;
+  
 } 
 
 
 header nav ul {
-list-style: none;
-margin: 0 0 2em;
-padding: 0;
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
 }
 header nav ul li {
-display: inline;
+  display: inline;
 }
 #flash_notice, #flash_alert {
-padding: 5px 8px;
-margin: 10px 0;
+  padding: 5px 8px;
+  margin: 10px 0;
 }
 #flash_notice {
-background-color: #CFC;
-border: solid 1px #6C6;
+  background-color: #CFC;
+  border: solid 1px #6C6;
 }
 #flash_alert {
-background-color: #FCC;
-border: solid 1px #C66;
+  background-color: #FCC;
+  border: solid 1px #C66;
 }
 
 #user_nav
@@ -65,56 +64,51 @@ border: solid 1px #C66;
 	background-color: #DCDCDC;
 }
 .topcorner{
-   position:absolute;
-   top:0;
-   right:0;
-  }
+ position:absolute;
+ top:0;
+ right:0;
+}
 
 
 
+.jumbotron{
+ margin-bottom: 0px;
+ background-image: url('http://www.wallpaperhd.pk/wp-content/uploads/2015/06/white-dice-white-background-wallpaper.jpg');
+
+ background-position: 0% 25%;
+ background-size: cover;
+ background-repeat: no-repeat;
+ color: white;
+ text-shadow: black 0.3em 0.3em 0.3em;
+
+}
 
 
+body {
+  padding-top: 60px;
+  
 
-
-
-
-
-
+ 
+  background-size: 120% ;
+  background-repeat: no-repeat;
+  
+}
 
 
 #header {
-   width: 100%;
-    background-color:black;
-    color:#4CAF50;
-    text-align:center;
-    padding:5px;
+ width: 100%;
+ background-color:black;
+ color:#4CAF50;
+ text-align:center;
+ padding:5px;
 
 }
-#content {
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:15px;
 
-}
 #nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:100px;
-    float:left;
-    padding:5px;
-}
-#section {
+  line-height:30px;
   
-    width:350px;
-    float:left;
-    padding:10px;
-}
-#footer {
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:1px;
+  height:300px;
+  width:100px;
+  float:left;
+  padding:5px;
 }

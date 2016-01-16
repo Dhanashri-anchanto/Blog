@@ -1,63 +1,90 @@
-
-<br/><br/>
-<%= link_to 'Back To previous Page',  tags_path %>
-<br/><br/>
-<div class="tags show">
-	<h2> Show Tag </h2>
-	<br><br/>
-
-	<%= render :partial => @tag %>
-
-	<table border="2" cellpadding="10" cellspacing="0" summary="Tags detail view">
-		<tr>
-			<th>Title</th>
-
-			<td><font size="3" color="red"><%= @tag.name %></font></td>
-		</tr>
-
-		<tr>
-			<th>Created</th>
-			<td><%= @tag.created_at %></td>
-		</tr>
-		<tr>
-			<th>Updated</th>
-			<td><%= @tag.updated_at %></td>
-		</tr>
-	</table>
-</div>
-</table>
 <br/><br/>
 
+<%= link_to tags_path , :class => 'btn btn-xs btn-default' do%>
+<span class="glyphicon glyphicon-triangle-left"></span> Back
+<% end %>
+<br/><br/>
+
+<h3>Tag</h3>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#tab1" data-toggle="tab"><%= (@tag.name rescue "")%></a></li>
+	<li><a href="#tab2" data-toggle="tab">Posts</a></li>
+
+</ul>
+
+<!-- Tab Sections -->
+<div class="tab-content">
+	<div class="tab-pane active" id="tab1">
+		<br>
+
+		<table id=t01 class="table table-striped table-hover">
+			<tr>
+				<th>Title</th>
+				<td ><font size="3" color="red"><%= (@tag.name rescue "")%></font></td>
+			</tr>
+			<tr>
+				<th>Posted By : </th>
+				<td ><%= (@tag.user.username rescue "")%></td>
+			</tr>
+			<tr>
+				<th>Created</th>
+				<td ><%= (@tag.created_at rescue "")%></td>
+			</tr>
+			<tr>
+				<th>Updated</th>
+				<td ><%= (@tag.updated_at rescue "")%></td>
+			</tr>
+		</table>
+
+	</div>
 
 
-<div class="posts index">
-	<h1>Listing posts</h1>
-	<table border="2" cellpadding="10" cellspacing="0" class="listing" summary="Post list" border=2 id="t01">
-		<tr class="header">
+	<div class="tab-pane active" id="tab2">
+		<br>
+		<br/>
+		<div class="row">
+			<% @posts.order("id DESC").each do |post|%>
+			<div class="col-sm-4">
+				<div class="panel panel-default">
+					<div class="panel-heading"><h3><%= post.title %></h3>
+					</div>
+					<div class="panel-body">
+						<%= image_tag post.image.url(:thumb) ,size: "200 * 200" ,  class: "img-thumbnail" %>
 
-			<th>Title</th>
-			<th>Body</th>
+						<strong><h4><%= truncate(post.body, length: 10) %></h4></strong>
+						<%= link_to 'read more', category_post_path(post.category,post)%> </td>
+						<br/>
+						<br/>
+						<p><%= link_to category_post_path(post.category,post) , :class => 'btn btn-xs btn-warning' do%>
+						<span class="glyphicon glyphicon-eye-open"></span> Show
+						<%end%>
 
-			<th>Options</th>
+							<% if user_signed_in? %>
+							<% if post.user.id == current_user.id %>
+							
+							<%puts "=======#{post.category}"%>
 
-		</tr>
-		<% @posts.each do |post| %>
-		<tr>
-			<td><%= post.title %></td>
-			<td><%= post.body %></td>
-			
+							<%= link_to edit_category_post_path(post.category,post), :class => 'btn btn-xs btn-info' do %>
 
-			<td class="actions">
-				<%= link_to("Show", category_post_path( post.category, post))%>|
-				<% if user_signed_in? %>
-				<% if post.user.id == current_user.id %>
-				<%= link_to("Edit", edit_category_post_path(post.category,post))%>|
-				<%= link_to "Remove", [post.category, post], method: :delete, data: { confirm: "Are you sure?" } %> </td>
-				<% end %>
-				<% end %>
-			</td>
-		</tr>
-		<% end %>
-	</table>
-</div>
-
+							<span class="glyphicon glyphicon-edit"></span> Edit  
+                            <% end %>
+							<%= link_to [post.category, post], method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-xs btn-danger' do %>
+							<span class="glyphicon glyphicon-trash"></span> Remove  
+                            <% end %>
+							<%end%>
+							<%end%>
+						</p>
+					</div>
+					<div class="panel-footer">
+						<small>  <p>Posted By : <%= post.user.username %></p>
+							<p>Posted At : <%= time_ago_in_words(post.created_at) %> ago</p></small>
+						</div>
+					</div>	
+					
+						
+				</div>
+				<%end%>
+				
+			</div>
+				
+		</div>

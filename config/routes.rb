@@ -4,6 +4,9 @@ Blog1::Application.routes.draw do
   get "user/about"
   get "user/contact"
   get "user/help"
+get "user/button_demo"
+get "user/glyphicon_demo"
+get "user/progress_bar_demo"
  
   get "home/index"
 

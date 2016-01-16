@@ -1,34 +1,19 @@
 
 
 
+<div class="row">
+   <div class="col-md-12">
+     <%= render 'layouts/carousel' %>
+   </div>
+ </div>
 
-<div class="container">
-	<div class="jumbotron">
-		<h1 style = "font-family:URW Chancery L ; font-size: 300%; " align="center">"Knowledge"</h1>
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;........ If carried to the extreme, becomes elegance.</p>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<button data-toggle="collapse" data-target="#content">Read More</button>
-
-
-		<div id="content" class="collapse">
-			<h5 style = "font-family:Tibetan Machine Uni ; font-size: 100%; " align="center">The control of information is something the elite always does, particularly in a despotic form of government. Information, knowledge, is power. If you can control information, you can control people.</h5>
-		</div>
-
-	</div>
-	 
-  <div class="row">
-
-    <div class="col-md-3">
-      <ul class="nav nav-pills nav-stacked">
-       <li><b><%= link_to 'Categories', Category %></b></li>
-        <li><b><%= link_to 'Posts' ,Post %></b></li>
-        <li><b><%= link_to 'Tags' ,Tag %></li>
-
-      </ul>
-    </div>
-    <div class="col-md-3">
-    </div>
-    <div class="clearfix visible-lg"></div>
+ <div class="row">
+  <div class="col-md-12">
+    <h1>KNOWLEDGE</h1>
+    <section><p>Knowledge refers to the skills and information acquired through experience and education. From time immemorial, every being is keenly desirous to attain power.</p>
+      <p> But power should not be misunderstood with the physical strength only. In the primitive age men were helpless creatures and they did not have any knowledge or idea about many things. They would not think why the things happened. They always remained afraid of wild animals and also of different kinds of natural calamities like storm, flood, earthquake etc. They would move from one place to another for safe shelter. But they failed to save themselves from such disaster.</p>
+      <p>   But today we are no more ignorant. We have learnt a lot from the experience of our primitive ancestors. We have now sufficient knowledge about our world, about nature and about many things that happen day and night around us. Being blessed with knowledge to day we can tame wild animals. At the same time it is not difficult for us to bring the wild nature under control. Knowledge has given us power to win the space, to fly to the moon, to fight many deadly diseases and cure them. Thus we have built up the most advanced civilization. Moreover it has given us power to communicate with the other parts of the world within a moment. Now, knowledge and knowledge only has lifted us to the top of the mountain of power. So this power should be suitably balanced by our conscience so that it is not indulged in evil or destructive activities.</p>
+    </section>
   </div>
 </div>
 
@@ -37,34 +22,50 @@
 
 
 
-<b>  <%= link_to 'Click Here', "#", data: {toggle: "modal", target: "#mymodal"} %>
-	<% if user_signed_in? %>
-	<div class="container">
-		<h2>Modal Example</h2>
-		
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog modal-sm">
-				
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">WelCome !</h4>
-					</div>
-					<div class="modal-body">
-						<p><h3><%= current_user.username%></h3></p>
-						<p><h6>Your Last Sign in at : <%= current_user.last_sign_in_at %></h6></p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Thank You..!!</button>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		
-	</div>
-	<% end%>
+<button data-toggle="collapse" data-target="#option", class = "btn btn-xs btn-warning">Click here for more Options</button>
+    <div id="option" class="collapse">
+      <div class="row">
 
+    <div class="col-md-3">
+
+    <ul class="nav nav-pills nav-stacked">
+    <li class="active"><%= link_to 'Categories', Category %></li>
+    <li>
+    <%= link_to 'Posts' ,Post %></li>
+    <li><%= link_to 'Tags' ,Tag %></li>
+     </ul>
+    </div>
+    <div class="col-md-3">
+     <ul class="nav nav-pills nav-stacked">
+       <li><%= link_to 'Button Demo', user_button_demo_path %></li>
+        <li><%= link_to 'Glyphicon Demo' ,user_glyphicon_demo_path %></li>
+        <li><%= link_to 'Progress Bar Demo' ,user_progress_bar_demo_path %></li>
+
+      </ul>
+    </div>
+    <div class="clearfix visible-lg"></div>
+  </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+	
+	 
+  
+
+
+
+
+
+
+
+	
 

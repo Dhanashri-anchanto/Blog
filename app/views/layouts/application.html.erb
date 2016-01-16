@@ -2,97 +2,34 @@
 <html>
 <head>
 	<title>Blog1</title>
-	<%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
+	<%= stylesheet_link_tag    "application", :media => "all"%>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
   <style>
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-    }
-
-    li {
-      float: left;
-    }
-
-    li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    a:hover:not(.active) {
-      background-color: #111;
-    }
-    body{
-      height: 1000px ; 
-
-      background: #D4D7A7;       /* Standard syntax (must be last) */
-    }
-
-
-    .active {
-      background-color:#4CAF50;
-    }
-
-
-
-    .carousel-inner > .item > img,
+  .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 60%;
       margin: auto;
   }
   </style>
 
-
-
- 
 </head>
 
+<body >
+  <div class="container-fluid">
+    <%= render 'layouts/header' %>
 
+    <div class="row">
+      <div class="col-md-12">
+       <%= yield%>
+     </div>
+   </div>
 
-<body>
+ </div>
 
-  <%= render 'layouts/header' %>
-  <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-
-  <script>
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip(); 
-    });
-
-
-    $(function() {
-      $('#myModal').modal();
-    });
-
-  </script>
-
- <br/>
-  <br/>
-  <br/>
-   
-  <div id="section">
-    <%= yield %>
-  </div>
-
-  <br/>
-  <br/>
-
-
-<div >
-  <%= render 'layouts/footer' %>	
-  </div>
+ <%= render 'layouts/footer' %>
 
 </body>
 </html>

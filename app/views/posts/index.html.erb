@@ -22,20 +22,20 @@
 		</tr>
 		<% @posts.each do |post| %>
 		<tr>
-			<td><%= post.title %></td>
-			<td><%= post.body %></td>
+			<td ><%= post.title %></td>
+			<td ><%= post.body %></td>
 			
 
-			<td>
+			<td >
 				<%= "#{(post.category.title rescue '')}" %></td>
 
-				<td>
+				<td >
 
 					<% post.tags.each do |n| %>
 					<%= "#{ n.name}"%>
 					<%end%>
 				</td>
-				<td class="actions">
+				<td >
 					<%= link_to("Show", {:action => 'show', :id => post.permalink }, :class => "action show")%>
 
 					
