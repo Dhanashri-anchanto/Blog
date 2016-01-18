@@ -9,13 +9,17 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap-datepicker
+ *= require bootstrap-social
  *= require_tree .
+
  
  */
 
 
  table#t01{ 
   width: 100%;
+  
 }
 
 table#t01 tr:nth-child(even) {
@@ -111,4 +115,10 @@ body {
   width:100px;
   float:left;
   padding:5px;
+}
+
+.breadcrumb > li + li:before {
+   color: #CCCCCC;
+   content: "/ ";
+   padding: 0 5px;
 }

@@ -1,5 +1,10 @@
-<br/><br/>
-<%= link_to 'Back To previous Page', url_for(:back) %>
+<br/>
+<%#= link_to 'Back To previous Page', url_for(:back) %>
+<%= link_to url_for(:back), class: "btn btn-default", :title => 'Back', :rel => 'tooltip' do %>
+   <span class="glyphicon glyphicon-step-backward"></span> Back
+<% end %>
+
+
 <h1>New tag</h1>
-<br/><br/>
+<br/>
 <%= render 'form' %>

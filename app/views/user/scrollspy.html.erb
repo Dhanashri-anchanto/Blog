@@ -1,0 +1,112 @@
+<nav id = "navbar-example" class = "navbar navbar-default navbar-static" role = "navigation">
+   
+   <div class = "navbar-header">
+      <button class = "navbar-toggle" type = "button" data-toggle = "collapse" 
+         data-target = ".bs-js-navbar-scrollspy">
+         <span class = "sr-only">Toggle navigation</span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+      </button>
+		
+      <a class = "navbar-brand" href = "#">Tutorial Name</a>
+   </div>
+   
+   <div class = "collapse navbar-collapse bs-js-navbar-scrollspy">
+      <ul class = "nav navbar-nav">
+         <li><a href = "#ios">Categories</a></li>
+         <li><a href = "#svn">Tags</a></li>
+         
+         <li class = "dropdown">
+            <a href = "#" id = "navbarDrop1" class = "dropdown-toggle" data-toggle = "dropdown">
+               Java
+               <b class = "caret"></b>
+            </a>
+            
+            <ul class = "dropdown-menu" role = "menu" aria-labelledby = "navbarDrop1">
+               <li><a href = "#jmeter" tabindex = "-1">jmeter</a></li>
+               <li><a href = "#ejb" tabindex = "-1">ejb</a></li>
+               
+               <li class = "divider"></li>
+               <li><a href = "#spring" tabindex = "-1">spring</a></li>
+            </ul>
+            
+         </li>
+      </ul>
+   </div>
+   
+</nav>
+
+<div data-spy = "scroll" data-target = "#navbar-example" data-offset = "0" 
+   style = "height:200px; overflow:auto; position: relative;">
+   <h4 id = "ios">Categories</h4>
+	
+   <br/><br/>
+<div class="table-responsive">
+<div class="categories index">
+   <h1>Listing Categories</h1>
+    <table id=t01 class="table table-striped table-hover">
+
+      <tr class="header">
+         <th>Title</th>
+         
+         <th>Latest Post</th>
+         <th>Options</th>
+      </tr>
+
+      <% Category.all.each do |category| %>
+      <tr>
+         <td>
+            <%= (category.title rescue '') %>  <span class="badge"><%= category.posts.count %></span></td>
+            
+            
+            <td>
+            <%if !category.posts.last.nil? %>
+            <%= link_to("#{category.posts.last.title}", category_post_path(category,category.posts.last))%><%end%></td>
+         </tr>
+         <% end %>
+        
+      </table>
+</div>
+   </div>
+   <br/>
+   <div>
+      
+   </div>
+   
+
+   
+   <h4 id = "svn">Tags</h4>
+   
+<h1>Listing Tags</h1>
+      <div class="panel-group">
+            <div class="panel panel-info">
+               <% Tag.all.each do |tag| %>
+               <div class="panel-heading"><h3><%= tag.name %></h3></div>
+            <%end%>
+            </div>
+         </div>
+            <br/>
+            <br/>   
+   
+   <h4 id = "jmeter">jMeter</h4>
+   
+   <p>jMeter is an Open Source testing software. It is 100% pure Java 
+      application for load and performance testing.</p>
+   
+   <h4 id = "ejb">EJB</h4>
+   
+   <p>Enterprise Java Beans (EJB) is a development architecture for building 
+      highly scalable and robust enterprise level applications to be deployed 
+      on J2EE compliant Application Server such as JBOSS, Web Logic etc.</p>
+   
+   <h4 id = "spring">Spring</h4>
+   
+   <p>Spring framework is an open source Java platform that provides 
+      comprehensive infrastructure support for developing robust Java 
+      applications very easily and very rapidly.</p>
+   
+   <p>Spring framework was initially written by Rod Johnson and was first 
+      released under the Apache 2.0 license in June 2003.</p>
+   
+</div>

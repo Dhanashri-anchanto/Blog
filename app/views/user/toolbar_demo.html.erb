@@ -1,0 +1,100 @@
+<nav class="navbar navbar-toolbar" role="navigation">
+ 
+    <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group">
+        <a href="#" class="btn btn-danger">NEW</a>
+      </div>
+      <div class="btn-group">
+        <a href="#" class="btn btn-default">All</a>
+        <a href="#" class="btn btn-default">Friends</a>
+        <a href="#" class="btn btn-default">Family</a>
+      </div>
+
+      <div class="btn-group">
+        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+          More <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Acquantances</a></li>
+          <li><a href="#">Following</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group pull-right">
+        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-header">Dropdown header</li>
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-bookmark"></i> Bookmark
+            </a>
+          </li>
+          <li role="separator" class="divider"></li>
+          <li>
+            <a href="#"><i class="glyphicon glyphicon-download"></i> Download</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+ 
+</nav>
+
+
+<h2> bootbox.js Example</h2>
+
+<a href="#" id="link1">alert</a>
+<a href="#" id="link2">Dilogue</a>
+<a href="#" id="link3">confirm</a>
+<a href="#" id="link4">prompt</a>
+
+
+<script>
+
+$(function() {
+  $('#link1').click(function() {
+    bootbox.alert("Hello world!");  
+  })
+
+ $('#link3').click(function() {
+   bootbox.confirm({ 
+    size: 'small',
+    message: "Your message here…", 
+    callback: function(result){ /* your callback code */ }
+  })
+})
+$('#link4').click(function() {
+bootbox.prompt({ 
+    size: 'small',
+    message: "Your message here…", 
+    callback: function(result){ /* your callback code */ }
+})
+})
+$('#link2').click(function() {
+bootbox.dialog("I am a custom dialog", [{
+    "label" : "Success!",
+    "class" : "btn-success",
+    "callback": function() {
+        Example.show("great success");
+    }
+}, {
+    "label" : "Danger!",
+    "class" : "btn-danger",
+    "callback": function() {
+        Example.show("uh oh, look out!");
+    }
+}, {
+    "label" : "Click ME!",
+    "class" : "btn-primary",
+    "callback": function() {
+        Example.show("Primary button");
+    }
+}, {
+    "label" : "Just a button..."
+}]);
+})
+
+})
+
+</script>

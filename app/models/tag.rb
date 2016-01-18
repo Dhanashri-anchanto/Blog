@@ -13,4 +13,9 @@ class Tag < ActiveRecord::Base
 	def to_param
 		permalink
 	end
+
+	def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    where("name like ?", "%#{query}%") 
+  end
 end

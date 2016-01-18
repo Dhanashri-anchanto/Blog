@@ -16,6 +16,14 @@ gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'autoprefixer-rails'
 gem 'sass', '~> 3.2.0'
+gem 'bootstrap-datepicker-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+gem 'bootstrap-social-rails'
+
+
+
+gem 'bootbox-rails', '~>0.4'
 
 
 

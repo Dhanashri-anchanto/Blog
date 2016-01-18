@@ -1,16 +1,17 @@
-
-<div class="container">
-	
-
-
 <div class="posts index">
-	<h1>Listing posts</h1>
-	<br/>
 
+<%= link_to categories_path, class: "btn btn-default", :title => 'Back', :rel => 'tooltip' do %>
+   <span class="glyphicon glyphicon-step-backward"></span> Back
+<% end %>
+<br/>
+	<h1>Listing Posts</h1>
+	
 	<%#= link_to "Add new Post", new_category_post_path(Category.first, @post) %>
-	<%= link_to("Add new Post", {:action => 'new'},:class => "action new") %><br/><br/>
+	<%#= link_to("Add new Post", {:action => 'new'},:class => "action new") %>
+	<%= link_to "Add new Post", new_category_post_path(Category.first, @post) ,:class => 'btn btn-success'   %><br/><br/>
 
-	<table id=t01 class="table table-bordered table-striped">
+	<table id=t01 class="table table-striped table-hover">
+
 		<tr class="header">
 
 			<th>Title</th>
@@ -23,7 +24,8 @@
 		<% @posts.each do |post| %>
 		<tr>
 			<td ><%= post.title %></td>
-			<td ><%= post.body %></td>
+			<td ><%= truncate(post.body, length: 10) %></h4></strong>
+						<%= link_to 'read more', category_post_path(post.category,post),:title => 'Read More', :rel => 'tooltip'%></td>
 			
 
 			<td >
@@ -36,20 +38,27 @@
 					<%end%>
 				</td>
 				<td >
-					<%= link_to("Show", {:action => 'show', :id => post.permalink }, :class => "action show")%>
+					<%= link_to category_post_path(post.category,post) , :class => 'btn btn-xs btn-warning',:title => 'Show', :rel => 'tooltip' do%>
+					<span class="glyphicon glyphicon-eye-open"></span> Show
+					<%end%>
 
-					
 					<% if user_signed_in? %>
 					<% if post.user.id == current_user.id %>
-					
-					<%= link_to("Edit", {:action => 'edit', :id => post.permalink }, :class => "action edit")%>
-					<%= "|" %>
+					<%= link_to edit_category_post_path(post.category,post), :class => 'btn btn-xs btn-info',:title => 'Edit', :rel => 'tooltip' do %>
 
-					<%= link_to "Remove", post, method: :delete, data: { confirm: "Are you sure?" } %>
+					<span class="glyphicon glyphicon-edit"></span> Edit  
 					<% end %>
+					<%= link_to [post.category, post], method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-xs btn-danger', :title => 'Delete', :rel => 'tooltip' do %>
+					<span class="glyphicon glyphicon-trash"></span> Remove  
 					<% end %>
+					<%end%>
+					<%end%>
+
 				</td>
 			</tr>
 			<% end %>
+			<tr>
+    <td colspan="4"><%= will_paginate @posts, renderer: BootstrapPagination::Rails , previous_label: "Older", next_label: "Newer", inner_window: 1 %></td>
+  </tr>
 		</table>
-	</div></div>
+	</div>

@@ -16,7 +16,7 @@
   <%= f.text_area :body, :required => true %>
 </div>
 
-<div class="actions">
-  <%= f.submit %>
-</div>
+<%= button_tag( :class => 'btn btn-primary', :title => 'Save', :rel => 'tooltip') do %>
+       Save<span class="glyphicon glyphicon-floppy-save"></span> 
+   <% end %>
 <% end %>

@@ -17,9 +17,13 @@
 </div>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <div class="actions">
-  <%= f.submit %>
+  <%= button_tag( :class => 'btn btn-primary', :title => 'Save', :rel => 'tooltip') do %>
+       Save<span class="glyphicon glyphicon-floppy-save"></span> 
+   <% end %>
 </div>
 <% end %>
+
+
 
 
 

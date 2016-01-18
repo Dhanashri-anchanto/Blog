@@ -16,9 +16,9 @@ class Post < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :title
   validates_presence_of :category_id
-  
-
   validate :at_least_one_category_selected
+
+  
   def to_param
     permalink
   end

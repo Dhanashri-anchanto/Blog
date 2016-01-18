@@ -33,10 +33,17 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
+    bootbox-rails (0.5.0)
+    bootstrap-datepicker-rails (1.5.0)
+      railties (>= 3.0)
     bootstrap-modal-rails (2.2.5)
       railties (>= 3.1)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bootstrap-social-rails (4.8.0)
+      railties (>= 3.1)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -71,6 +78,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mimemagic (0.3.0)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.11.2)
     mysql2 (0.3.20)
     orm_adapter (0.5.0)
@@ -139,12 +148,17 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  bootbox-rails (~> 0.4)
+  bootstrap-datepicker-rails
   bootstrap-modal-rails
   bootstrap-sass (= 3.2.0.0)
+  bootstrap-social-rails
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   coffee-rails (~> 3.2.1)
   devise
   has_permalink
   jquery-rails
+  momentjs-rails (>= 2.9.0)
   mysql2 (~> 0.3.10)
   paperclip (~> 4.3)
   rails (= 3.2.14)

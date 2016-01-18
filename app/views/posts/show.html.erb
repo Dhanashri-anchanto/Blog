@@ -1,6 +1,6 @@
 
-<%= link_to categories_path , :class => 'btn btn-xs btn-default' do%>
-<span class="glyphicon glyphicon-triangle-left"></span> Back
+<%= link_to categories_path, class: "btn btn-default", :title => 'Back', :rel => 'tooltip' do %>
+   <span class="glyphicon glyphicon-step-backward"></span> Back
 <% end %>
 <br/><br/>
 
@@ -18,7 +18,7 @@
          		<strong>Category :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= (@post.category.title rescue "") %><br/>
 
 
-           		<strong>Tags :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= (@post.tags.map{|n| n.name}.uniq.join(' , ') rescue "")%><br/>
+           		<strong>Tags :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class = "label label-default"><%= (@post.tags.map{|n| n.name}.uniq.join(' , ') rescue "")%></span><br/>
 
         		<strong>Post Created at :&nbsp;&nbsp;&nbsp;</strong><%= (@post.created_at rescue "") %><br/>
 

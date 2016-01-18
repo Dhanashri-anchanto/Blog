@@ -3,6 +3,19 @@
 <span class="glyphicon glyphicon-triangle-left"></span> Back
 <% end %>
 <br/>
+<br/>
+
+
+<%= form_tag tags_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search] %>
+<%#= submit_tag "Search",:class => 'btn btn-default'%>
+   <%= button_tag( :class => 'btn btn-default') do %>
+       Search<span class="glyphicon glyphicon-search"></span> 
+   <% end %>
+<%end%>
+
+
+
 
 <h1>Listing Tags</h1>
 		<div class="panel-group">
@@ -25,8 +38,9 @@
 					</div>
 					<%end%>
 					<%end%>
-					<%end%>
+					
 				</div> 
+				<%end%>
 				<br/>
 				<br/>   
 			<%= link_to 'Add new Post',new_tag_path, :class => 'btn btn-success'  %>	

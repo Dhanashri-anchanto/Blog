@@ -1,7 +1,6 @@
 <br/><br/>
-
-<%= link_to categories_path , :class => 'btn btn-xs btn-default' do%>
-<span class="glyphicon glyphicon-triangle-left"></span> Back
+<%= link_to categories_path, class: "btn btn-default", :title => 'Back', :rel => 'tooltip' do %>
+   <span class="glyphicon glyphicon-step-backward"></span> Back
 <% end %>
 <br/><br/>
 
@@ -52,23 +51,20 @@
 						<%= image_tag post.image.url(:thumb) ,size: "200 * 200" ,  class: "img-thumbnail" %>
 
 						<strong><h4><%= truncate(post.body, length: 10) %></h4></strong>
-						<%= link_to 'read more', category_post_path(post.category,post)%> </td>
+						<%= link_to 'read more', category_post_path(post.category,post),:title => 'Read More', :rel => 'tooltip'%> </td>
 						<br/>
 						<br/>
-						<p><%= link_to category_post_path(post.category,post) , :class => 'btn btn-xs btn-warning' do%>
+						<p><%= link_to category_post_path(post.category,post) , :class => 'btn btn-xs btn-warning',:title => 'Show', :rel => 'tooltip' do%>
 						<span class="glyphicon glyphicon-eye-open"></span> Show
 						<%end%>
 
 							<% if user_signed_in? %>
 							<% if post.user.id == current_user.id %>
-							
-							<%puts "=======#{post.category}"%>
-
-							<%= link_to edit_category_post_path(post.category,post), :class => 'btn btn-xs btn-info' do %>
+							<%= link_to edit_category_post_path(post.category,post), :class => 'btn btn-xs btn-info',:title => 'Edit', :rel => 'tooltip' do %>
 
 							<span class="glyphicon glyphicon-edit"></span> Edit  
                             <% end %>
-							<%= link_to [post.category, post], method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-xs btn-danger' do %>
+							<%= link_to [post.category, post], method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-xs btn-danger', :title => 'Delete', :rel => 'tooltip' do %>
 							<span class="glyphicon glyphicon-trash"></span> Remove  
                             <% end %>
 							<%end%>
@@ -86,5 +82,5 @@
 				<%end%>
 				
 			</div>
-			<%= link_to 'Add new Post',new_category_post_path(@category), :class => 'btn btn-info'  %>	
+			<%= link_to 'Add new Post',new_category_post_path(@category), :class => 'btn btn-info',:title => 'Click here for new Post', :rel => 'tooltip'  %>	
 		</div>

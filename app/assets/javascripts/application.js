@@ -13,9 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datepicker
+//= require bootbox
+
 //= require_tree .
 
-$(function() {
-      $('#myModal').modal();
-    });
-  

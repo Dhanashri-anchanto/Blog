@@ -55,7 +55,9 @@
   <tr>
      <th> 
      </th>
-      <td >   <%= f.submit "Sign up" %></td>
+      <td > <%= button_tag( :class => 'btn btn-primary', :title => 'Save', :rel => 'tooltip') do %>
+       Save<span class="glyphicon glyphicon-floppy-save"></span> 
+   <% end %></td>
     </tr>
  
 <% end %>

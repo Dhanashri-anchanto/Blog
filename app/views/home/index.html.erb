@@ -1,71 +1,79 @@
 
-
+<ul class = "nav nav-tabs nav-stacked affix" id = "myNav">
+  <li><img src = "http://www.anchanto.com/wp-content/uploads/2014/12/Anchanto_Logo__2001.png" />
+  </li>
+</ul>
 
 <div class="row">
-   <div class="col-md-12">
-     <%= render 'layouts/carousel' %>
-   </div>
+ <div class="col-md-12">
+   <%= render 'layouts/carousel' %>
  </div>
+</div>
+<br/>
+<div class="row">
+ <div class="col-md-9">
+  <h1>KNOWLEDGE</h1>
+  <section><p>Knowledge refers to the skills and information acquired through experience and education. From time immemorial, every being is keenly desirous to attain power.</p>
+    <p> But power should not be misunderstood with the physical strength only. In the primitive age men were helpless creatures and they did not have any knowledge or idea about many things. They would not think why the things happened. They always remained afraid of wild animals and also of different kinds of natural calamities like storm, flood, earthquake etc. They would move from one place to another for safe shelter. But they failed to save themselves from such disaster.</p>
+    <p>   But today we are no more ignorant. We have learnt a lot from the experience of our primitive ancestors. We have now sufficient knowledge about our world, about nature and about many things that happen day and night around us. Being blessed with knowledge to day we can tame wild animals. At the same time it is not difficult for us to bring the wild nature under control. Knowledge has given us power to win the space, to fly to the moon, to fight many deadly diseases and cure them. Thus we have built up the most advanced civilization. Moreover it has given us power to communicate with the other parts of the world within a moment. Now, knowledge and knowledge only has lifted us to the top of the mountain of power. So this power should be suitably balanced by our conscience so that it is not indulged in evil or destructive activities.</p>
+  </section>
+  <br/>
+  <p> <button data-toggle="collapse" data-target="#option", class = "btn btn-xs btn-warning">Click here for more Options</button></p>
+</div>
 
- <div class="row">
-  <div class="col-md-12">
-    <h1>KNOWLEDGE</h1>
-    <section><p>Knowledge refers to the skills and information acquired through experience and education. From time immemorial, every being is keenly desirous to attain power.</p>
-      <p> But power should not be misunderstood with the physical strength only. In the primitive age men were helpless creatures and they did not have any knowledge or idea about many things. They would not think why the things happened. They always remained afraid of wild animals and also of different kinds of natural calamities like storm, flood, earthquake etc. They would move from one place to another for safe shelter. But they failed to save themselves from such disaster.</p>
-      <p>   But today we are no more ignorant. We have learnt a lot from the experience of our primitive ancestors. We have now sufficient knowledge about our world, about nature and about many things that happen day and night around us. Being blessed with knowledge to day we can tame wild animals. At the same time it is not difficult for us to bring the wild nature under control. Knowledge has given us power to win the space, to fly to the moon, to fight many deadly diseases and cure them. Thus we have built up the most advanced civilization. Moreover it has given us power to communicate with the other parts of the world within a moment. Now, knowledge and knowledge only has lifted us to the top of the mountain of power. So this power should be suitably balanced by our conscience so that it is not indulged in evil or destructive activities.</p>
-    </section>
-  </div>
+<div class = "col-md-3">
+
+ <ul class = "nav nav-pills nav-stacked nav-right affix " data-spy = "affix" data-offset-top = "190">
+   <li></li>
+   <li></li>
+
+   <li class = "active"><%= link_to 'Categories', Category %></li>
+   <li class = "active"><%= link_to 'Posts' ,Post %></li>
+   <li class = "active"><%= link_to 'Tags' ,Tag %></li>
+
+ </ul>
+</div>
+
+</div>
+<br/><br/>
+
+
+<div id="option" class="collapse">
+  <div class="row">
+   <div class="col-md-3">
+     <ul class="nav nav-pills nav-stacked">
+       <li><%= link_to 'Grid Demo' ,user_grid_demo_path %></li>
+       <li><%= link_to 'Button Demo', user_button_demo_path %></li>
+       <li><%= link_to 'Glyphicon Demo' ,user_glyphicon_demo_path %></li>
+       <li><%= link_to 'Progress Bar Demo' ,user_progress_bar_demo_path %></li>
+     </ul>
+   </div>
+   <div class="col-md-3">
+     <ul class="nav nav-pills nav-stacked">
+       <li><%= link_to 'Alert Plugin Demo', user_alert_plugin_path %></li>
+       <li><%= link_to 'Button Plugin Demo', user_button_plugin_path %></li>
+       <li><%= link_to 'ScrollSpy Plugin Demo', user_scrollspy_path %></li>
+     <li><%= link_to 'Toolbar Demo', user_toolbar_demo_path %></li>
+     <li><%= link_to 'Off-Canvas Demo', user_off_canvas_path %></li>
+       
+     </ul>
+   </div>
+   <div class="col-md-3">
+     <ul class="nav nav-pills nav-stacked">
+       <li><%= link_to 'Affix Plugin Demo', user_affix_plugin_path %></li>
+       <li><%= link_to 'ProgressBar Demo', user_progress_path %></li>
+       <li><%= link_to 'Breadcrumbs Demo', user_breadcrumbs_path %></li>
+       <li><%= link_to 'DateTimePicker Demo', user_datetimepicker_plugin_path %></li>
+       <li><%= link_to 'Social Buttons Demo', user_list_group_path %></li>
+
+     </ul>
+   </div>
+   <div class="clearfix visible-lg"></div>
+ </div>
 </div>
 
 
 
 
 
-
-<button data-toggle="collapse" data-target="#option", class = "btn btn-xs btn-warning">Click here for more Options</button>
-    <div id="option" class="collapse">
-      <div class="row">
-
-    <div class="col-md-3">
-
-    <ul class="nav nav-pills nav-stacked">
-    <li class="active"><%= link_to 'Categories', Category %></li>
-    <li>
-    <%= link_to 'Posts' ,Post %></li>
-    <li><%= link_to 'Tags' ,Tag %></li>
-     </ul>
-    </div>
-    <div class="col-md-3">
-     <ul class="nav nav-pills nav-stacked">
-       <li><%= link_to 'Button Demo', user_button_demo_path %></li>
-        <li><%= link_to 'Glyphicon Demo' ,user_glyphicon_demo_path %></li>
-        <li><%= link_to 'Progress Bar Demo' ,user_progress_bar_demo_path %></li>
-
-      </ul>
-    </div>
-    <div class="clearfix visible-lg"></div>
-  </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-	
-	 
-  
-
-
-
-
-
-
-
-	
 

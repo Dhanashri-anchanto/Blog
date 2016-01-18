@@ -1,0 +1,35 @@
+<h3>Alert messages to demonstrate alert() method </h3>
+
+<div id = "myAlert" class = "alert alert-success">
+   <a href = "#" class = "close" data-dismiss = "alert">&times;</a>
+   <strong>Success!</strong> the result is successful.
+</div>
+
+<div id = "myAlert" class = "alert alert-warning">
+   <a href = "#" class = "close" data-dismiss = "alert">&times;</a>
+   <strong>Warning!</strong> There was a problem with your network connection.
+</div>
+
+<div id = "myAlert" class = "alert alert-success">
+   <a href = "#" class = "close" data-dismiss = "alert">&times;</a>
+   <strong>Success!</strong> the result is successful.
+</div>
+
+  
+
+<script type = "text/javascript">
+   $(function(){
+      $(".close").click(function(){
+         $("#myAlert").alert();
+      });
+   });  
+
+
+
+
+   $(function(){
+      $("#myAlert").bind('closed.bs.alert', function () {
+         alert("Alert message box is closed.");
+      });
+   });
+</script> 
