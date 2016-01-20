@@ -2,4 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', comments_path %>
+<%= link_to url_for(:back) , :class => 'btn btn-xs btn-default' do%>
+<span class="glyphicon glyphicon-triangle-left"></span> Back
+<% end %>

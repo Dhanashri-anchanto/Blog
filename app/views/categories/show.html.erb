@@ -1,6 +1,6 @@
 <br/><br/>
 <%= link_to categories_path, class: "btn btn-default", :title => 'Back', :rel => 'tooltip' do %>
-   <span class="glyphicon glyphicon-step-backward"></span> Back
+<span class="glyphicon glyphicon-step-backward"></span> Back
 <% end %>
 <br/><br/>
 
@@ -38,8 +38,10 @@
 	</div>
 
 
-	<div class="tab-pane active" id="tab2">
+	<div class="tab-pane" id="tab2">
+
 		<br>
+		<%= link_to 'Add new Post',new_category_post_path(@category), :class => 'btn btn-info',:title => 'Click here for new Post', :rel => 'tooltip'  %>	
 		<br/>
 		<div class="row">
 			<% @post.order("id DESC").each do |post|%>
@@ -55,18 +57,18 @@
 						<br/>
 						<br/>
 						<p><%= link_to category_post_path(post.category,post) , :class => 'btn btn-xs btn-warning',:title => 'Show', :rel => 'tooltip' do%>
-						<span class="glyphicon glyphicon-eye-open"></span> Show
-						<%end%>
+							<span class="glyphicon glyphicon-eye-open"></span> Show
+							<%end%>
 
 							<% if user_signed_in? %>
 							<% if post.user.id == current_user.id %>
 							<%= link_to edit_category_post_path(post.category,post), :class => 'btn btn-xs btn-info',:title => 'Edit', :rel => 'tooltip' do %>
 
 							<span class="glyphicon glyphicon-edit"></span> Edit  
-                            <% end %>
+							<% end %>
 							<%= link_to [post.category, post], method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-xs btn-danger', :title => 'Delete', :rel => 'tooltip' do %>
 							<span class="glyphicon glyphicon-trash"></span> Remove  
-                            <% end %>
+							<% end %>
 							<%end%>
 							<%end%>
 						</p>
@@ -77,10 +79,11 @@
 						</div>
 					</div>	
 					
-						
+					
 				</div>
 				<%end%>
 				
 			</div>
-			<%= link_to 'Add new Post',new_category_post_path(@category), :class => 'btn btn-info',:title => 'Click here for new Post', :rel => 'tooltip'  %>	
+			<%= will_paginate @post, renderer: BootstrapPagination::Rails , previous_label: "Older", next_label: "Newer", inner_window: 1 %>
+			
 		</div>

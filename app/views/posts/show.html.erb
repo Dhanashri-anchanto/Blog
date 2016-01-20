@@ -36,9 +36,6 @@
 </div>
 <button data-toggle="collapse" data-target="#comment", class = "btn btn-xs btn-warning">Click here to Comment</button>
 		<div id="comment" class="collapse">
-			<h2>Comments</h2>
-
-
 <%= form_for [@post.category,@post, Comment.new] do |f| %>
 <p>
 	<h4>New comment</h4><br/>

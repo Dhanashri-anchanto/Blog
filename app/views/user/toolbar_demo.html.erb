@@ -1,3 +1,6 @@
+<%= link_to url_for(:back) , :class => 'btn btn-xs btn-default' do%>
+<span class="glyphicon glyphicon-triangle-left"></span> Back
+<% end %>
 <nav class="navbar navbar-toolbar" role="navigation">
  
     <div class="btn-toolbar" role="toolbar">
@@ -54,7 +57,8 @@
 
 $(function() {
   $('#link1').click(function() {
-    bootbox.alert("Hello world!");  
+    bootbox.alert("Hello world!"); 
+    })
   })
 
  $('#link3').click(function() {
@@ -69,7 +73,7 @@ bootbox.prompt({
     size: 'small',
     message: "Your message here…", 
     callback: function(result){ /* your callback code */ }
-})
+});
 })
 $('#link2').click(function() {
 bootbox.dialog("I am a custom dialog", [{
@@ -93,8 +97,6 @@ bootbox.dialog("I am a custom dialog", [{
 }, {
     "label" : "Just a button..."
 }]);
-})
-
 })
 
 </script>

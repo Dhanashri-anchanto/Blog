@@ -30,7 +30,7 @@
   <td >
     
     <% Tag.all.each do |t| %>
-    <%= check_box_tag(:tag_ids, t.id, @post.tags.include?(t), :name => 'post[tag_ids][]', :required => true) -%>
+    <%= check_box_tag(:tag_ids, t.id, @post.tags.include?(t), :name => 'post[tag_ids][]') -%>
     <%= t.name %><br/>
     <% end %>
   </td>

@@ -1,7 +1,9 @@
 
 
 <br/><br/>
-<%= link_to 'Back To previous Page', url_for(:back) %>
+<%= link_to url_for(:back) , :class => 'btn btn-xs btn-default' do%>
+<span class="glyphicon glyphicon-triangle-left"></span> Back
+<% end %>
 <h1>New Category</h1>
 
 <%= render 'form'%>

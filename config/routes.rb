@@ -18,6 +18,7 @@ Blog1::Application.routes.draw do
    get "user/toolbar_demo"
    get "user/list_group"
    get "user/off_canvas"
+   get "user/sweet_alert_demo"
  
   get "home/index"
 

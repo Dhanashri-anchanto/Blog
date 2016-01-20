@@ -1,6 +1,10 @@
 <%= render :partial => @post %>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_post_path(@post) %> 
+
+<%= link_to category_posts_path , :class => 'btn btn-xs btn-default' do%>
+<span class="glyphicon glyphicon-triangle-left"></span> Back
+<% end %>|
+
 
 <h2>Comments</h2>
 <div id="comments">

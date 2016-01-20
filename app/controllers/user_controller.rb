@@ -36,4 +36,6 @@ class UserController < ApplicationController
   end
   def off_canvas
   end
+  def sweet_alert_demo
+  end
 end

@@ -1,66 +1,103 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#datepicker').datepicker();
 
-
-<h2>" Register Here To Increase Knowledge "</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true }) do |f| %>
+    $('#myForm').validator()
+  });
+</script>
+<div class="my_signup">
+  <h2>" Register Here To Increase Knowledge "</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true }) do |f| %>
   <%= devise_error_messages! %>
- <table id=t01 class="table table-striped">
-    <tr>
-      <th><%= f.label :first_name %></th>
-      <td > <%= f.text_field :first_name , autofocus: true,  :required => true %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :last_name  %></th>
-      <td > <%= f.text_field :last_name , autofocus: true,  :required => true %></td>
-    </tr>
-   <tr>
-      <th><%= f.label :birthdate %></th>
-      <td > <%= f.date_select :birthdate, :order => [:day, :month, :year], :prompt => [day: 'Select day', month: 'Select month', year: 'Select year'], :end_year => Time.now.year - 50 , :start_year => Time.now.year -%></td>
-    </tr>
+
+<hr class="colorgraph">
+
+<div class="row">
+<div class="col-lg-6"> 
+<form role="form" data-toggle="validator">
+     <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name , autofocus: true,  :required => true, class: 'form-control input-lg', placeholder: "First Name"%>
+    </div>
+    </div>
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :last_name  %>
+      <%= f.text_field :last_name , autofocus: true,  :required => true, class: 'form-control input-lg', placeholder: "Last Name"%>
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :birthdate %>
+      <%= f.text_field :birthdate , :id => "datepicker" ,class: 'form-control input-lg' , required: true, placeholder: "Select Your BirthDate" %>
+      <%#= f.date_select :birthdate, :order => [:day, :month, :year], :prompt => [day: 'Select day', month: 'Select month', year: 'Select year'], :end_year => Time.now.year - 50 , :start_year => Time.now.year -%>
+    </div>
+    </div>
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :mobile %>
+      <%= f.text_field :mobile, autofocus: true,  :required => true, class: 'form-control input-lg', placeholder: "Enter your Mobile number"%>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image , class: 'form-control input-lg' %>
+    </div>
+    </div>
+
+<div class="col-lg-6">  
+    <div class="form-group">
+
+      <%= f.label :username %>
+      <%= f.text_field :username, autofocus: true,  :required => true, class: 'form-control input-lg', placeholder: "User Name"%>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :gender %>
+      <%= f.select :gender, ['Male', 'Female'], {:include_blank => 'Please Select'}, :prompt => 'Select', class: 'form-control input-lg'%>
+    </div>
+    </div>
+
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, class: 'form-control input-lg', placeholder: "Email"%>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" , class: 'form-control input-lg', placeholder: "Password Confirmation"%>
+    </div>
+    </div>
+
+<div class="col-lg-6">  
+    <div class="form-group">
+      <%= f.label :password_confirmation %></th>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control input-lg', placeholder: "Password Confirmation"%>
+    </div>
+    </div>
+
+</div>
+    <hr class="colorgraph">
+    <input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"> 
+    </form> 
+  <% end %>
+  <%= render "devise/shared/links" %>
 
 
-  <tr>
-      <th><%= f.label :mobile %></th>
-      <td>  <%= f.text_field :mobile, autofocus: true,  :required => true %></td>
-    </tr>
-<tr>
-     <th> <%= f.label :image %></th>
-      <td >   <%= f.file_field :image%></td>
-    </tr>
-
-<tr>
-     <th> <%= f.label :username %></th>
-      <td >   <%= f.text_field :username, autofocus: true,  :required => true %></td>
-    </tr>
-<tr>
-     <th><%= f.label :gender %></th>
-      <td >  <%= f.select :gender, ['Male', 'Female'], {:include_blank => 'Please Select'}, :prompt => 'Select' %></td>
-    </tr>
-  <tr>
-     <th>  <%= f.label :email %></th>
-      <td >   <%= f.email_field :email, autofocus: true %></td>
-    </tr>
-<tr>
-     <th>  <%= f.label :password %></th>
-      <td >  <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></td>
-    </tr>
-
-<tr>
-     <th>   <%= f.label :password_confirmation %></th>
-      <td >  <%= f.password_field :password_confirmation, autocomplete: "off" %></td>
-    </tr>
-  <tr>
-     <th> 
-     </th>
-      <td > <%= button_tag( :class => 'btn btn-primary', :title => 'Save', :rel => 'tooltip') do %>
-       Save<span class="glyphicon glyphicon-floppy-save"></span> 
-   <% end %></td>
-    </tr>
- 
-<% end %>
-</table>
-
-<%= render "devise/shared/links" %>
-
+</div>

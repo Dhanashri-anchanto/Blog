@@ -26,6 +26,8 @@ class PostsController < ApplicationController
   end
 
   def create
+    #raise params.inspect
+    @category = Category.find_by_permalink(params[:category_id])
     @post = Post.new(params[:post])
     
     if @post.valid?

@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   def show
     #raise params.inspect
     @temp = Category.find_by_permalink(params[:id])
-    @post =@temp.posts
+    @post =@temp.posts.paginate(page: params[:page], per_page: 3)
     respond_with(@category)
   end
 

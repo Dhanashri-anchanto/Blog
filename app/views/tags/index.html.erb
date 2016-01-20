@@ -4,7 +4,8 @@
 <% end %>
 <br/>
 <br/>
-
+		
+			
 
 <%= form_tag tags_path, :method => 'get' do %>
 <%= text_field_tag :search, params[:search] %>
@@ -14,10 +15,11 @@
    <% end %>
 <%end%>
 
-
-
-
 <h1>Listing Tags</h1>
+<br/>
+
+	<%= link_to 'Add new Tag',new_tag_path, :class => 'btn btn-success'  %>	
+	<br/><br/>
 		<div class="panel-group">
 				<div class="panel panel-info">
 					<% @tags.each do |tag| %>
@@ -41,10 +43,7 @@
 					
 				</div> 
 				<%end%>
-				<br/>
-				<br/>   
-			<%= link_to 'Add new Post',new_tag_path, :class => 'btn btn-success'  %>	
-			
+				
 			
 			
 		

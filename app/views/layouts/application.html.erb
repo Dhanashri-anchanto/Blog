@@ -1,49 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Blog1</title>
+	<title>Knowledge</title>
 	<%= stylesheet_link_tag    "application", :media => "all"%>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <%= favicon_link_tag 'favicon.ico' %>
   <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
       width: 60%;
       margin: auto;
-  }
+    }
   </style>
+  <script src="assets/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/sweetalert.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 </head>
 
 <body >
   <div class="container-fluid">
     <%= render 'layouts/header' %>
-  
-
     <div class="row">
       <div class="col-md-12">
-       <%= yield%>
-     </div>
-      <div class = "col-md-3 col-md-push-10">
-     
-         <ul class = "nav nav-pills nav-stacked nav-right affix" data-spy = "affix" data-offset-top = "190">
-         <li></li>
-         <li></li>
-
-            <li class = "active"><%= link_to 'Categories', Category %></li>
-            <li class = "active"><%= link_to 'Posts' ,Post %></li>
-            <li class = "active"><%= link_to 'Tags' ,Tag %></li>
+        <% flash.each do |name, msg| %>
+        <% if user_signed_in? %>
+        <script>
+         $(document).ready(function(){
            
-         </ul>
-      </div>
+           swal("<%= current_user.username %>", "<%= msg %>", "success")
+           
+         });
+       </script>
+
+       <% else %>
+       <script>
+         $(document).ready(function(){
+           
+           swal(" Good Job! ", "<%= msg %>", "success")
+           
+         });
+       </script>
+       <% end %>
+       <%#= content_tag :div, msg, :id => "flash_#{name}" %>
+       <% end %>
+     </div>
    </div>
-   
-<%= render 'layouts/footer' %>
 
+   <div class="row">
+
+    <div class="col-md-12">
+
+     <%= yield%>
+   </div>
+   <div class = "col-md-3 col-md-push-10">
+     
+     <ul class = "nav nav-pills nav-stacked nav-right affix" data-spy = "affix" data-offset-top = "190">
+       <li></li>
+       <li></li>
+
+       <li class = "active"><%= link_to 'Categories', Category %></li>
+       <li class = "active"><%= link_to 'Posts' ,Post %></li>
+       <li class = "active"><%= link_to 'Tags' ,Tag %></li>
+       
+     </ul>
+   </div>
  </div>
-
  
+ <%= render 'layouts/footer' %>
+
+</div>
+
+
 </body>
 </html>
